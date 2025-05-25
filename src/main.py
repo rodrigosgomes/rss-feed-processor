@@ -35,11 +35,11 @@ def main():
         feed_urls = get_feed_urls(args)
         rss_reader = RssReader(feed_urls)
         
-        # Fetch and parse the RSS feeds
-        news_items = rss_reader.fetch_news()
+        # Fetch and parse the RSS feeds with date range
+        news_items = rss_reader.fetch_news(days=args.days)
         
         if not news_items:
-            logger.warning("No news items found. Check your RSS feed URLs.")
+            logger.warning(f"No news items found in the last {args.days} days. Check your RSS feed URLs.")
             return
         
         # Initialize the summarizer

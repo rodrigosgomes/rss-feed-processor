@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-from datetime import datetime
+from datetime import datetime, timedelta
 import pytz
 from models.news_item import NewsItem
 import xml.etree.ElementTree as ET
@@ -41,7 +41,11 @@ class RssReader:
             logger.error(f"Error parsing date {date_str}: {str(e)}")
             return None
 
-    def fetch_news(self) -> List[NewsItem]:
+    def fetch_news(self, days: int = 1) -> List[NewsItem]:
+        # Calculate the cutoff date in UTC
+        cutoff_date = datetime.now(pytz.UTC) - timedelta(days=days)
+        logger.info(f"Fetching news from last {days} days (since {cutoff_date})")
+        
         news_items = []
         for url in self.feed_urls:
             try:
@@ -76,13 +80,17 @@ class RssReader:
                             logger.warning(f"No valid publication date for article: {title}")
                             continue
                         
-                        news_items.append(NewsItem(
+                        news_item = NewsItem(
                             title=title,
                             link=link,
                             description=description,
                             published_date=pub_date,
                             source=feed_title
-                        ))
+                        )
+                        
+                        # Filter items by date as we process them
+                        if news_item.published_date >= cutoff_date:
+                            news_items.append(news_item)
                         
                     except Exception as e:
                         logger.error(f"Error processing item: {str(e)}")
@@ -95,4 +103,5 @@ class RssReader:
                 logger.error(f"Error parsing feed {url}: {str(e)}")
                 continue
             
-        return news_items
+        logger.info(f"Found {len(news_items)} items within date range")
+        return sorted(news_items, key=lambda x: x.published_date, reverse=True)
