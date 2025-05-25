@@ -69,6 +69,7 @@ def main():
 def process_news(days: int = 1, feed_urls: Optional[List[str]] = None, dry_run: bool = False):
     try:
         logger.info("Starting News Digest process")
+        logger.info(f"Processing news for the last {days} days")
         
         # Use provided feed URLs or default ones
         feeds_to_process = feed_urls or RSS_FEED_URLS
@@ -78,9 +79,10 @@ def process_news(days: int = 1, feed_urls: Optional[List[str]] = None, dry_run: 
         
         # Set the date range for filtering with timezone awareness
         date_cutoff = datetime.now(pytz.UTC) - timedelta(days=days)
+        logger.info(f"Date range: {date_cutoff.date()} to {datetime.now(pytz.UTC).date()}")
         
-        # Fetch and parse the RSS feeds
-        news_items = rss_reader.fetch_news()
+        # Fetch and parse the RSS feeds with the specified date range
+        news_items = rss_reader.fetch_news(days=days)
         
         # Filter news items by date, ensuring we have a valid published_date
         news_items = [item for item in news_items 
