@@ -68,3 +68,48 @@ class RssReader:
         
         logger.info(f"RSS Reader: Total items found in date range: {total_items}")
         return sorted(news_items, key=lambda x: x.published_date, reverse=True)
+    
+    def _parse_feed(self, content: bytes, feed_url: str) -> List[NewsItem]:
+        """Parse RSS feed content and return a list of NewsItem objects."""
+        try:
+            root = ET.fromstring(content)
+            items = root.findall('.//item')
+            logger.info(f"RSS Reader: Found {len(items)} raw items in feed")
+            
+            news_items = []
+            for item in items:
+                try:
+                    title = item.find('title')
+                    description = item.find('description')
+                    link = item.find('link')
+                    pub_date = item.find('pubDate')
+                    
+                    if not all([title is not None, description is not None, 
+                              link is not None, pub_date is not None]):
+                        continue
+                    
+                    published_date = self.parse_date(pub_date.text)
+                    if not published_date:
+                        continue
+                    
+                    news_item = NewsItem(
+                        title=title.text,
+                        description=BeautifulSoup(description.text, 'html.parser').get_text(),
+                        link=link.text,
+                        published_date=published_date,
+                        source=feed_url
+                    )
+                    news_items.append(news_item)
+                    
+                except Exception as e:
+                    logger.error(f"RSS Reader: Error parsing item: {str(e)}")
+                    continue
+                    
+            return news_items
+            
+        except ET.ParseError as e:
+            logger.error(f"RSS Reader: Error parsing feed XML: {str(e)}")
+            return []
+        except Exception as e:
+            logger.error(f"RSS Reader: Unexpected error parsing feed: {str(e)}")
+            return []

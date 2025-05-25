@@ -160,6 +160,7 @@ def test_connections():
 if __name__ == "__main__":
     args = parse_args()
     logger.info("=== Starting News Digest Application ===")
+    logger.info(f"Command line arguments: days={args.days}, dry_run={args.dry_run}")
     if test_connections():
         process_news(
             days=args.days,
