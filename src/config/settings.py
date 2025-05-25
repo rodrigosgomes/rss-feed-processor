@@ -36,10 +36,13 @@ def validate_email_settings(settings: Dict[str, Any]) -> bool:
 
 def validate_rss_feeds(urls: List[str]) -> bool:
     """Validate RSS feed URLs"""
-    if not urls or not urls[0]:
+    # Filter out empty or whitespace-only URLs
+    valid_urls = [url.strip() for url in urls if url and url.strip()]
+    
+    if not valid_urls:
         raise ConfigurationError("No RSS feed URLs configured")
     
-    for url in urls:
+    for url in valid_urls:
         if not url.startswith(('http://', 'https://')):
             raise ConfigurationError(f"Invalid RSS feed URL: {url}")
     
@@ -55,7 +58,7 @@ def validate_api_key(api_key: str) -> bool:
 load_dotenv()
 
 # Get and validate RSS feed URLs
-RSS_FEED_URLS = os.getenv('RSS_FEED_URLS', '').split(',')
+RSS_FEED_URLS = [url.strip() for url in os.getenv('RSS_FEED_URLS', '').split(',') if url.strip()]
 validate_rss_feeds(RSS_FEED_URLS)
 
 # Get and validate email settings
