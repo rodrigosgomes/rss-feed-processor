@@ -30,12 +30,18 @@ class EmailSender:
 
             msg = MIMEMultipart('alternative')
             
-            # Get the first date key safely
-            dates = list(news_by_date.keys())
+            # Get all dates safely
+            dates = sorted(list(news_by_date.keys()))
             if not dates:
                 raise EmailSendError("No dates found in news data")
-                
-            msg['Subject'] = f"Daily News Summary - {dates[0].strftime('%Y-%m-%d')}"
+            
+            # Create appropriate subject line based on date range
+            if len(dates) == 1:
+                subject = f"Daily News Summary - {dates[0].strftime('%Y-%m-%d')}"
+            else:
+                subject = f"News Summary {dates[0].strftime('%Y-%m-%d')} to {dates[-1].strftime('%Y-%m-%d')}"
+            
+            msg['Subject'] = subject
             msg['From'] = self.settings['sender_email']
             msg['To'] = self.settings['recipient_email']
             msg.attach(MIMEText(html_content, 'html'))
