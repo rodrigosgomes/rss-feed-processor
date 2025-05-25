@@ -39,12 +39,12 @@ class RssReader:
             return None
         except Exception as e:
             logger.error(f"Error parsing date {date_str}: {str(e)}")
-            return None    
-    def fetch_news(self, days: int = 1) -> List[NewsItem]:
-        # Calculate the cutoff date in UTC
-        cutoff_date = datetime.now(pytz.UTC) - timedelta(days=days)
+            return None      def fetch_news(self, days: int = 1) -> List[NewsItem]:
+        # Get date range using helper
+        from utils.date_helpers import get_date_range
+        start_date, end_date = get_date_range(days)
         logger.info(f"RSS Reader: Fetching news from last {days} days")
-        logger.info(f"RSS Reader: Date range {cutoff_date.date()} to {datetime.now(pytz.UTC).date()}")
+        logger.info(f"RSS Reader: Date range {start_date.date()} to {end_date.date()}")
         
         total_items = 0
         news_items = []
@@ -56,7 +56,7 @@ class RssReader:
                 
                 feed_items = self._parse_feed(response.content, url)
                 valid_items = [item for item in feed_items 
-                             if item.published_date and item.published_date >= cutoff_date]
+                             if item.published_date and start_date <= item.published_date <= end_date]
                 
                 news_items.extend(valid_items)
                 total_items += len(valid_items)
