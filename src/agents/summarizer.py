@@ -1,5 +1,5 @@
 try:
-    from datetime import datetime
+    from datetime import datetime, timedelta
     from itertools import groupby
     from operator import attrgetter
     import google.generativeai as genai
@@ -20,28 +20,29 @@ class Summarizer:
         self.client = GeminiClient(GEMINI_API_KEY)
         self.client.initialize_model()
 
-    def summarize(self, news_items):
+    def summarize(self, news_items, days=1):
         logger.info("Starting news summarization process")
         
         # Get current date in UTC
         current_date = datetime.now(pytz.UTC).date()
-        logger.info(f"Filtering news for current date: {current_date}")
+        start_date = current_date - timedelta(days=days-1)  # days-1 because we want to include today
+        logger.info(f"Filtering news from {start_date} to {current_date}")
         
-        # Filter news items for current day only
-        current_news = [
+        # Filter news items for the specified date range
+        filtered_news = [
             item for item in news_items 
-            if item.published_date.date() == current_date
+            if start_date <= item.published_date.date() <= current_date
         ]
         
-        if not current_news:
-            logger.warning("No news items found for the current day")
+        if not filtered_news:
+            logger.warning(f"No news items found between {start_date} and {current_date}")
             return {}
             
-        logger.info(f"Found {len(current_news)} news items for today")
+        logger.info(f"Found {len(filtered_news)} news items in the date range")
         
         # Generate summaries for each article
         summarized_news = []
-        for item in current_news:
+        for item in filtered_news:
             try:
                 summary = self._generate_article_summary(item)
                 # Create a new news item with the summary
@@ -60,14 +61,16 @@ class Summarizer:
                 item.summary = "Error generating summary for this article."
                 summarized_news.append(item)
         
-        grouped_news = {
-            current_date: {
-                'items': summarized_news
-            }
-        }
+        # Group news by date
+        news_by_date = {}
+        for item in summarized_news:
+            date = item.published_date.date()
+            if date not in news_by_date:
+                news_by_date[date] = {'items': []}
+            news_by_date[date]['items'].append(item)
         
-        logger.info("Completed summarization for today's news")
-        return grouped_news
+        logger.info(f"Completed summarization for news between {start_date} and {current_date}")
+        return news_by_date
 
     def _generate_article_summary(self, news_item):
         try:

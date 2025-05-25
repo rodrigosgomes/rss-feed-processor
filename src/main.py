@@ -27,10 +27,13 @@ def get_feed_urls(args) -> List[str]:
 
 def main():
     try:
+        args = parse_args()
         logger.info("Starting News Digest process")
+        logger.info(f"Processing news for the last {args.days} days")
         
         # Initialize the RSS reader
-        rss_reader = RssReader(RSS_FEED_URLS)
+        feed_urls = get_feed_urls(args)
+        rss_reader = RssReader(feed_urls)
         
         # Fetch and parse the RSS feeds
         news_items = rss_reader.fetch_news()
@@ -43,7 +46,7 @@ def main():
         summarizer = Summarizer()
         
         # Generate the summary grouped by day
-        summary = summarizer.summarize(news_items)
+        summary = summarizer.summarize(news_items, days=args.days)
         
         if not summary:
             logger.warning("No summaries generated. Check the Gemini API connection.")
