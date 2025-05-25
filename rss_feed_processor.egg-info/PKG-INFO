@@ -1,0 +1,89 @@
+Metadata-Version: 2.4
+Name: rss-feed-processor
+Version: 0.1.0
+Summary: A package for processing RSS feeds and generating summaries
+Author-email: Example Author <author@example.com>
+Project-URL: Homepage, https://github.com/yourusername/rss-feed-processor
+Project-URL: Bug Tracker, https://github.com/yourusername/rss-feed-processor/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Dynamic: requires-python
+
+# rss-feed-processor
+
+This project implements an agent to read RSS feeds, extract and summarize news grouped by day, and send the output via email in a beautifully designed HTML format.
+
+## Project Structure
+
+```
+rss-feed-processor
+├── src
+│   ├── __init__.py
+│   ├── main.py
+│   ├── agents
+│   │   ├── __init__.py
+│   │   ├── rss_reader.py
+│   │   └── summarizer.py
+│   ├── config
+│   │   ├── __init__.py
+│   │   └── settings.py
+│   ├── models
+│   │   ├── __init__.py
+│   │   └── news_item.py
+│   ├── templates
+│   │   ├── __init__.py
+│   │   ├── email_template.html
+│   │   └── prompts.py
+│   └── utils
+│       ├── __init__.py
+│       ├── date_helpers.py
+│       └── email_sender.py
+├── tests
+│   ├── __init__.py
+│   ├── test_rss_reader.py
+│   └── test_summarizer.py
+├── requirements.txt
+├── .env.example
+├── .gitignore
+└── README.md
+```
+
+## Installation
+
+1. Clone the repository:
+   ```
+   git clone https://github.com/yourusername/rss-feed-processor.git
+   cd rss-feed-processor
+   ```
+
+2. Install the required dependencies:
+   ```
+   pip install -r requirements.txt
+   ```
+
+3. Set up your environment variables by copying `.env.example` to `.env` and filling in the necessary values.
+
+## Usage
+
+To run the application, execute the following command:
+```
+python src/main.py
+```
+
+## Testing
+
+To run the tests, use:
+```
+pytest tests/
+```
+
+## Contributing
+
+Feel free to submit issues or pull requests. Contributions are welcome!
+
+## License
+
+This project is licensed under the MIT License.

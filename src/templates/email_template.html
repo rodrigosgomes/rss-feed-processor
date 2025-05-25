@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily News Summary</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        .date-section {
+            margin-bottom: 30px;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .date-header {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .summary {
+            background-color: #fff;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            margin-bottom: 20px;
+        }
+        .news-items {
+            list-style: none;
+            padding: 0;
+        }
+        .news-item {
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #eee;
+            border-radius: 4px;
+        }
+        .article-summary {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f0f7ff;
+            border-left: 3px solid #007bff;
+            font-style: italic;
+            line-height: 1.6;
+        }
+        .article-description {
+            margin-top: 10px;
+            color: #666;
+        }
+        .news-title {
+            color: #2c3e50;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .news-source {
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Daily News Summary</h1>
+        {% for date, content in news_by_date.items() %}
+        <div class="date-section">
+            <h2 class="date-header">{{ date.strftime('%A, %B %d, %Y') }}</h2>
+            <ul class="news-items">
+                {% for item in content['items'] %}
+                <li class="news-item">
+                    <a href="{{ item.link }}" class="news-title">{{ item.title }}</a>
+                    <div class="article-summary">{{ item.summary }}</div>
+                    <p class="article-description">{{ item.description }}</p>
+                    <span class="news-source">Source: {{ item.source }}</span>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
