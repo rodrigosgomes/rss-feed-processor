@@ -17,9 +17,10 @@ jobs:
           python-version: '3.11'      - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
+          python -m pip install --upgrade setuptools wheel
           pip install -r requirements.txt
-          pip install pytz==2024.1  # Ensure pytz is installed
-          pip list | grep pytz  # Verify pytz installation
+          # Verify critical dependencies
+          python -c "import sys; import pytz; import google.generativeai; print('Python:', sys.version); print('Pytz:', pytz.__version__); print('Dependencies OK')"
       
       - name: Run RSS processor
         env:

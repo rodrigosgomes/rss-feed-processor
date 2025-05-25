@@ -1,12 +1,18 @@
-import google.generativeai as genai
-from datetime import datetime
-import pytz
-from itertools import groupby
-from operator import attrgetter
-from templates.prompts import ARTICLE_SUMMARY_PROMPT
-from config.settings import GEMINI_API_KEY
-from utils.logger import logger
-from utils.gemini_client import GeminiClient
+try:
+    from datetime import datetime
+    from itertools import groupby
+    from operator import attrgetter
+    import google.generativeai as genai
+    import pytz
+    from templates.prompts import ARTICLE_SUMMARY_PROMPT
+    from config.settings import GEMINI_API_KEY
+    from utils.logger import logger
+    from utils.gemini_client import GeminiClient
+except ImportError as e:
+    import sys
+    print(f"Error importing required modules: {e}", file=sys.stderr)
+    print("Please ensure all dependencies are installed: pip install -r requirements.txt", file=sys.stderr)
+    raise
 
 class Summarizer:
     def __init__(self):
