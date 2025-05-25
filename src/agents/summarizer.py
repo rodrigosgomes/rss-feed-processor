@@ -21,12 +21,13 @@ class Summarizer:
         self.client.initialize_model()
 
     def summarize(self, news_items, days=1):
-        logger.info("Starting news summarization process")
+        logger.info("=== Starting News Summarization ===")
+        logger.info(f"Total articles to process: {len(news_items)}")
         
         # Get date range in UTC
         end_date = datetime.now(pytz.UTC).date()
         start_date = end_date - timedelta(days=days-1)  # -1 because we want to include today
-        logger.info(f"Filtering news from {start_date} to {end_date}")
+        logger.info(f"Summarizer: Processing date range {start_date} to {end_date}")
         
         # Filter news items for the specified date range
         filtered_news = [

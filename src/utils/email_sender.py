@@ -24,7 +24,10 @@ class EmailSender:
             if not news_by_date:
                 raise EmailSendError("No news items to send")
 
-            logger.info("Preparing email content")
+            logger.info("=== Preparing Email ===")
+            total_articles = sum(len(date_data['items']) for date_data in news_by_date.values())
+            logger.info(f"Processing {total_articles} articles across {len(news_by_date)} days")
+            
             template = self.template_env.get_template('email_template.html')
             html_content = template.render(news_by_date=news_by_date)
 

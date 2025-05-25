@@ -120,7 +120,8 @@ def test_connections():
     """Test Gemini API and SMTP connections before running the main process"""
     try:
         # Test Gemini connection
-        logger.info("Testing Gemini API connection...")
+        logger.info("=== Testing Connections ===")
+        logger.info("1. Testing Gemini API connection...")
         client = GeminiClient(GEMINI_API_KEY)
         
         # Initialize the model (this will retry if needed)
