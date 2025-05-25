@@ -28,11 +28,14 @@ def get_feed_urls(args) -> List[str]:
 def main():
     try:
         args = parse_args()
-        logger.info("Starting News Digest process")
+        logger.info("=== Starting News Digest process ===")
         logger.info(f"Processing news for the last {args.days} days")
+        logger.info(f"Start date: {(datetime.now(pytz.UTC) - timedelta(days=args.days)).date()}")
+        logger.info(f"End date: {datetime.now(pytz.UTC).date()}")
         
         # Initialize the RSS reader
         feed_urls = get_feed_urls(args)
+        logger.info(f"Using RSS feeds: {feed_urls}")
         rss_reader = RssReader(feed_urls)
         
         # Fetch and parse the RSS feeds with date range

@@ -39,69 +39,32 @@ class RssReader:
             return None
         except Exception as e:
             logger.error(f"Error parsing date {date_str}: {str(e)}")
-            return None
-
+            return None    
     def fetch_news(self, days: int = 1) -> List[NewsItem]:
         # Calculate the cutoff date in UTC
         cutoff_date = datetime.now(pytz.UTC) - timedelta(days=days)
-        logger.info(f"Fetching news from last {days} days (since {cutoff_date})")
+        logger.info(f"RSS Reader: Fetching news from last {days} days")
+        logger.info(f"RSS Reader: Date range {cutoff_date.date()} to {datetime.now(pytz.UTC).date()}")
         
+        total_items = 0
         news_items = []
         for url in self.feed_urls:
             try:
-                logger.info(f"Fetching news from: {url}")
+                logger.info(f"RSS Reader: Processing feed: {url}")
                 response = requests.get(url, timeout=10)
                 response.raise_for_status()
                 
-                # Parse XML content
-                root = ET.fromstring(response.content)
+                feed_items = self._parse_feed(response.content, url)
+                valid_items = [item for item in feed_items 
+                             if item.published_date and item.published_date >= cutoff_date]
                 
-                # Get channel info
-                channel = root.find('channel')
-                feed_title = channel.find('title').text if channel.find('title') is not None else "Unknown Source"
+                news_items.extend(valid_items)
+                total_items += len(valid_items)
+                logger.info(f"RSS Reader: Found {len(valid_items)} items in date range from {url}")
                 
-                items = channel.findall('item')
-                logger.info(f"Found {len(items)} articles in {feed_title}")
-                
-                # Process each item
-                for item in items:
-                    try:
-                        title = item.find('title').text if item.find('title') is not None else "No Title"
-                        link = item.find('link').text if item.find('link') is not None else None
-                        description = item.find('description').text if item.find('description') is not None else ""
-                        
-                        # Parse publication date
-                        pub_date = None
-                        date_elem = item.find('pubDate')
-                        if date_elem is not None and date_elem.text:
-                            pub_date = self.parse_date(date_elem.text)
-                        
-                        if not pub_date:
-                            logger.warning(f"No valid publication date for article: {title}")
-                            continue
-                        
-                        news_item = NewsItem(
-                            title=title,
-                            link=link,
-                            description=description,
-                            published_date=pub_date,
-                            source=feed_title
-                        )
-                        
-                        # Filter items by date as we process them
-                        if news_item.published_date >= cutoff_date:
-                            news_items.append(news_item)
-                        
-                    except Exception as e:
-                        logger.error(f"Error processing item: {str(e)}")
-                        continue
-                        
             except requests.RequestException as e:
-                logger.error(f"Error fetching feed {url}: {str(e)}")
+                logger.error(f"RSS Reader: Error fetching feed {url}: {str(e)}")
                 continue
-            except ET.ParseError as e:
-                logger.error(f"Error parsing feed {url}: {str(e)}")
-                continue
-            
-        logger.info(f"Found {len(news_items)} items within date range")
+        
+        logger.info(f"RSS Reader: Total items found in date range: {total_items}")
         return sorted(news_items, key=lambda x: x.published_date, reverse=True)
