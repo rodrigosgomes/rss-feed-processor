@@ -1,8 +1,59 @@
-# rss-feed-processor
+# RSS Feed Processor
 
-This project implements an agent to read RSS feeds, extract and summarize news grouped by day, and send the output via email in a beautifully designed HTML format.
+Este projeto é um processador de feeds RSS que lê artigos, gera resumos usando IA e envia um email diário com o conteúdo formatado em HTML.
 
-## Project Structure
+## Instalação
+
+1. Clone o repositório e crie um ambiente virtual:
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+```
+
+2. Configure o ambiente:
+- Copie as configurações de exemplo para os arquivos apropriados:
+  - `.env` para credenciais e chaves de API
+  - `src/config/feeds.txt` para URLs dos feeds RSS
+  - `src/config/recipients.txt` para emails dos destinatários
+
+## Uso
+
+### Execução do Programa
+
+Use o script `run_app.ps1` para executar o programa:
+
+```powershell
+.\run_app.ps1 --days 3  # Processa últimos 3 dias de notícias
+.\run_app.ps1 --dry-run  # Executa sem enviar emails
+```
+
+### Opções da Linha de Comando
+
+- `--days N`: Processa os últimos N dias de notícias (padrão: 1)
+- `--dry-run`: Executa sem enviar emails, mostrando o conteúdo no terminal
+- `--feeds`: Lista específica de feeds para processar (opcional)
+
+### Configuração
+
+1. Arquivo `.env`:
+```plaintext
+SMTP_SERVER=smtp.gmail.com
+SMTP_PORT=587
+SENDER_EMAIL=seu-email@gmail.com
+SENDER_PASSWORD=sua-senha-de-app
+GEMINI_API_KEY=sua-chave-api
+```
+
+2. Arquivo `src/config/feeds.txt`:
+- Um feed RSS por linha
+- Suporta qualquer feed RSS válido
+
+3. Arquivo `src/config/recipients.txt`:
+- Um email por linha
+- Emails que receberão o digest diário
+
+## Estrutura do Projeto
 
 ```
 rss-feed-processor

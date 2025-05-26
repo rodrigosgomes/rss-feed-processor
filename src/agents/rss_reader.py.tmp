@@ -1,0 +1,156 @@
+import requests
+from bs4 import BeautifulSoup
+from datetime import datetime, timedelta
+import pytz
+from models.news_item import NewsItem
+import xml.etree.ElementTree as ET
+from typing import List, Optional
+from utils.logger import logger
+import email.utils
+import time
+
+class RssReader:
+    def __init__(self, feed_urls: List[str]):
+        self.feed_urls = feed_urls
+        logger.info(f"Initialized RSS Reader with {len(feed_urls)} feeds")
+
+    def parse_date(self, date_str: str) -> Optional[datetime]:
+        """Parse date string from RSS feed in various formats."""
+        try:
+            # Try RFC822 format (standard for RSS)
+            time_tuple = email.utils.parsedate_tz(date_str)
+            if time_tuple:
+                timestamp = email.utils.mktime_tz(time_tuple)
+                return datetime.fromtimestamp(timestamp, pytz.UTC)
+            
+            # Try other common formats
+            formats = [
+                '%Y-%m-%dT%H:%M:%SZ',  # ISO format
+                '%Y-%m-%d %H:%M:%S',   # Standard format
+                '%a, %d %b %Y %H:%M:%S %z',  # RFC822 variant
+                '%Y-%m-%d',  # Just date
+            ]
+            
+            for fmt in formats:
+                try:
+                    dt = datetime.strptime(date_str, fmt)
+                    return dt.replace(tzinfo=pytz.UTC) if dt.tzinfo is None else dt
+                except ValueError:
+                    continue
+            
+            logger.warning(f"Could not parse date: {date_str}")
+            return None
+        except Exception as e:
+            logger.error(f"Error parsing date {date_str}: {str(e)}")
+            return None
+            
+    def fetch_news(self, days: int = 1) -> List[NewsItem]:
+        """Fetch news from RSS feeds and filter by date range."""
+        # Get date range using helper
+        from utils.date_helpers import get_date_range
+        start_date, end_date = get_date_range(days)
+        logger.info(f"RSS Reader: Fetching news from last {days} days")
+        logger.info(f"RSS Reader: Date range {start_date.date()} to {end_date.date()}")
+        
+        news_items = []
+        successful_feeds = 0
+        skipped_feeds = 0
+        total_items = 0
+        
+        for url in self.feed_urls:
+            try:
+                logger.info(f"RSS Reader: Processing feed: {url}")
+                response = requests.get(url, timeout=10)
+                response.raise_for_status()
+                
+                feed_items = self._parse_feed(response.content, url)
+                logger.info(f"RSS Reader: Parsed {len(feed_items)} items from {url}")
+                
+                if not feed_items:
+                    logger.warning(f"RSS Reader: No items found in feed {url}")
+                    skipped_feeds += 1
+                    continue
+                
+                items_with_dates = [item for item in feed_items if item.published_date is not None]
+                if len(items_with_dates) < len(feed_items):
+                    logger.warning(f"RSS Reader: {len(feed_items) - len(items_with_dates)} items had invalid dates in {url}")
+                
+                valid_items = [item for item in items_with_dates 
+                             if start_date <= item.published_date <= end_date]
+                
+                logger.info(f"RSS Reader: Found {len(valid_items)} items in date range from {url}")
+                if len(valid_items) == 0:
+                    logger.warning(f"RSS Reader: All items from {url} were outside date range {start_date.date()} to {end_date.date()}")
+                    skipped_feeds += 1
+                else:
+                    successful_feeds += 1
+                
+                news_items.extend(valid_items)
+                total_items += len(valid_items)
+                
+            except requests.RequestException as e:
+                logger.error(f"RSS Reader: Error fetching feed {url}: {str(e)}")
+                skipped_feeds += 1
+                continue
+            except Exception as e:
+                logger.error(f"RSS Reader: Unexpected error processing feed {url}: {str(e)}")
+                skipped_feeds += 1
+                continue
+        
+        logger.info(f"RSS Reader: Summary:")
+        logger.info(f"- Total feeds processed: {len(self.feed_urls)}")
+        logger.info(f"- Successful feeds: {successful_feeds}")
+        logger.info(f"- Skipped/failed feeds: {skipped_feeds}")
+        logger.info(f"- Total valid items found: {total_items}")
+        
+        if total_items == 0:
+            logger.warning("RSS Reader: No valid news items found in any feed!")
+        
+        return sorted(news_items, key=lambda x: x.published_date, reverse=True)
+    
+    def _parse_feed(self, content: bytes, feed_url: str) -> List[NewsItem]:
+        """Parse RSS feed content and return a list of NewsItem objects."""
+        try:
+            root = ET.fromstring(content)
+            items = root.findall('.//item')
+            logger.info(f"RSS Reader: Found {len(items)} raw items in feed")
+            
+            news_items = []
+            for item in items:
+                try:
+                    title = item.find('title')
+                    description = item.find('description')
+                    link = item.find('link')
+                    pub_date = item.find('pubDate') or item.find('published') or item.find('date')
+                    
+                    if not all([title is not None, link is not None, pub_date is not None]):
+                        continue
+                    
+                    published_date = self.parse_date(pub_date.text)
+                    if not published_date:
+                        continue
+                    
+                    # Use description or title if description is missing
+                    desc_text = description.text if description is not None else title.text
+                    
+                    news_item = NewsItem(
+                        title=title.text,
+                        description=BeautifulSoup(desc_text, 'html.parser').get_text(),
+                        link=link.text,
+                        published_date=published_date,
+                        source=feed_url
+                    )
+                    news_items.append(news_item)
+                    
+                except Exception as e:
+                    logger.error(f"RSS Reader: Error parsing item from {feed_url}: {str(e)}")
+                    continue
+            
+            return news_items
+            
+        except ET.ParseError as e:
+            logger.error(f"RSS Reader: Error parsing feed XML from {feed_url}: {str(e)}")
+            return []
+        except Exception as e:
+            logger.error(f"RSS Reader: Unexpected error parsing feed from {feed_url}: {str(e)}")
+            return []

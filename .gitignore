@@ -6,3 +6,6 @@ __pycache__/
 reports/
 .coverage
 htmlcov/
+
+# Local configuration files that should be customized per environment
+src/config/recipients.txt

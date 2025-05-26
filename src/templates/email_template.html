@@ -68,20 +68,49 @@
             margin-top: 10px;
             color: #666;
         }
-        .news-title {
-            color: #2c3e50;
-            text-decoration: none;
-            font-weight: bold;
+        .social-content {
+            background-color: #f0f7ff;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border-left: 4px solid #0077b5;  /* Cor do LinkedIn */
         }
-        .news-source {
-            color: #7f8c8d;
-            font-size: 0.9em;
+        .social-content h2 {
+            color: #0077b5;
+            margin-bottom: 15px;
+        }
+        .linkedin-post {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.8;
+            white-space: pre-line;  /* Preserva quebras de linha */
+            padding: 15px;
+            background: white;
+            border: 1px solid #e1e9ef;
+            border-radius: 5px;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Daily News Summary</h1>
+        
+        {% if stats %}
+        <div class="summary">
+            <h2>Estatísticas do Dia</h2>
+            <p>Total de Notícias: {{ stats.total_articles }}</p>
+            <p>Principais Fontes: {{ stats.top_sources | join(', ') }}</p>
+        </div>
+        {% endif %}
+
+        {% if linkedin_content %}
+        <div class="social-content">
+            <h2>📱 Sugestão de Publicação para LinkedIn</h2>
+            <div class="linkedin-post">
+                {{ linkedin_content }}
+            </div>
+        </div>
+        {% endif %}
+
         {% for date, content in news_by_date.items() %}
         <div class="date-section">
             <h2 class="date-header">{{ date.strftime('%A, %B %d, %Y') }}</h2>

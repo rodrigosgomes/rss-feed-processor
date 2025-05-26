@@ -12,11 +12,62 @@ Requires-Python: >=3.8
 Description-Content-Type: text/markdown
 Dynamic: requires-python
 
-# rss-feed-processor
+# RSS Feed Processor
 
-This project implements an agent to read RSS feeds, extract and summarize news grouped by day, and send the output via email in a beautifully designed HTML format.
+Este projeto é um processador de feeds RSS que lê artigos, gera resumos usando IA e envia um email diário com o conteúdo formatado em HTML.
 
-## Project Structure
+## Instalação
+
+1. Clone o repositório e crie um ambiente virtual:
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+```
+
+2. Configure o ambiente:
+- Copie as configurações de exemplo para os arquivos apropriados:
+  - `.env` para credenciais e chaves de API
+  - `src/config/feeds.txt` para URLs dos feeds RSS
+  - `src/config/recipients.txt` para emails dos destinatários
+
+## Uso
+
+### Execução do Programa
+
+Use o script `run_app.ps1` para executar o programa:
+
+```powershell
+.\run_app.ps1 --days 3  # Processa últimos 3 dias de notícias
+.\run_app.ps1 --dry-run  # Executa sem enviar emails
+```
+
+### Opções da Linha de Comando
+
+- `--days N`: Processa os últimos N dias de notícias (padrão: 1)
+- `--dry-run`: Executa sem enviar emails, mostrando o conteúdo no terminal
+- `--feeds`: Lista específica de feeds para processar (opcional)
+
+### Configuração
+
+1. Arquivo `.env`:
+```plaintext
+SMTP_SERVER=smtp.gmail.com
+SMTP_PORT=587
+SENDER_EMAIL=seu-email@gmail.com
+SENDER_PASSWORD=sua-senha-de-app
+GEMINI_API_KEY=sua-chave-api
+```
+
+2. Arquivo `src/config/feeds.txt`:
+- Um feed RSS por linha
+- Suporta qualquer feed RSS válido
+
+3. Arquivo `src/config/recipients.txt`:
+- Um email por linha
+- Emails que receberão o digest diário
+
+## Estrutura do Projeto
 
 ```
 rss-feed-processor
@@ -54,36 +105,129 @@ rss-feed-processor
 ## Installation
 
 1. Clone the repository:
-   ```
+   ```bash
    git clone https://github.com/yourusername/rss-feed-processor.git
    cd rss-feed-processor
    ```
 
-2. Install the required dependencies:
+2. Create and activate a virtual environment (recommended):
+   ```bash
+   # On Windows
+   python -m venv venv
+   .\venv\Scripts\activate
+
+   # On Linux/MacOS
+   python3 -m venv venv
+   source venv/bin/activate
    ```
+
+3. Install the required dependencies:
+   ```bash
    pip install -r requirements.txt
    ```
 
-3. Set up your environment variables by copying `.env.example` to `.env` and filling in the necessary values.
+4. Configure your environment:
+   - Copy `.env.example` to `.env`
+   - Open `.env` and configure the following settings:
+     ```
+     # RSS Feed Settings
+     RSS_FEEDS=["url1", "url2", "url3"]
+     MAX_ITEMS_PER_FEED=10
+
+     # Email Settings
+     SMTP_SERVER=smtp.gmail.com
+     SMTP_PORT=587
+     EMAIL_USERNAME=your-email@gmail.com
+     EMAIL_PASSWORD=your-app-specific-password
+     RECIPIENT_EMAIL=recipient@example.com
+
+     # OpenAI Settings (for summarization)
+     OPENAI_API_KEY=your-api-key
+     ```
 
 ## Usage
 
-To run the application, execute the following command:
-```
-python src/main.py
+### Running the Application
+
+1. Start the application:
+   ```bash
+   python src/main.py
+   ```
+
+2. The application will:
+   - Fetch articles from configured RSS feeds
+   - Group articles by date
+   - Generate summaries using AI
+   - Create an HTML email with the content
+   - Send the email to configured recipients
+
+### Command Line Options
+
+```bash
+python src/main.py --days 3  # Process last 3 days of news
+python src/main.py --feeds "feed1,feed2"  # Process specific feeds
+python src/main.py --dry-run  # Run without sending emails
 ```
 
-## Testing
+## Development
 
-To run the tests, use:
-```
-pytest tests/
-```
+### Running Tests
+
+1. Install development dependencies:
+   ```bash
+   pip install -r requirements-dev.txt
+   ```
+
+2. Run the test suite:
+   ```bash
+   pytest tests/
+   ```
+
+3. Run tests with coverage:
+   ```bash
+   pytest --cov=src tests/
+   ```
+
+### Code Style
+
+- We follow PEP 8 guidelines
+- Use black for code formatting:
+  ```bash
+  black src/ tests/
+  ```
+
+## Troubleshooting
+
+Common issues and solutions:
+
+1. Email sending fails:
+   - Verify SMTP settings
+   - For Gmail, ensure "Less secure app access" is enabled
+   - Check if you're using an app-specific password
+
+2. RSS feed errors:
+   - Verify feed URLs are accessible
+   - Check internet connection
+   - Ensure feed URLs are properly formatted
 
 ## Contributing
 
-Feel free to submit issues or pull requests. Contributions are welcome!
+1. Fork the repository
+2. Create a feature branch:
+   ```bash
+   git checkout -b feature-name
+   ```
+3. Make your changes and commit:
+   ```bash
+   git commit -m "Description of changes"
+   ```
+4. Push to your fork and submit a pull request
+
+Please ensure your code:
+- Includes appropriate tests
+- Follows the project's code style
+- Updates documentation as needed
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License. See the LICENSE file for details.

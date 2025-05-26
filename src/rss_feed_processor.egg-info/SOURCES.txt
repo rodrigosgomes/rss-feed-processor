@@ -1,5 +1,6 @@
 README.md
 pyproject.toml
+setup.cfg
 setup.py
 src/agents/__init__.py
 src/agents/rss_reader.py
@@ -20,6 +21,7 @@ src/utils/email_sender.py
 src/utils/gemini_client.py
 src/utils/logger.py
 tests/test_basic.py
+tests/test_cli.py
 tests/test_email_sender.py
 tests/test_gemini_client.py
 tests/test_rss_reader.py

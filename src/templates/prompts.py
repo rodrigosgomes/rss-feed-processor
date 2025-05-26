@@ -19,3 +19,38 @@ Title: {title}
 Description: {description}
 Source: {source}
 """
+
+LINKEDIN_CONTENT_PROMPT = """
+Crie uma publicação no estilo LinkedIn sobre Product Management baseada nos artigos abaixo.
+Use estas diretrizes:
+
+1. Estilo e Tom:
+   - Linguagem acessível para iniciantes
+   - Tom profissional mas conversacional
+   - Texto engajador e motivacional
+   - Use emojis estrategicamente
+
+2. Estrutura:
+   - Gancho inicial forte
+   - 3-4 parágrafos curtos
+   - Call-to-action ao final
+   - Hashtags relevantes (5-7)
+
+3. Elementos de Marketing:
+   - Inclua um insight principal
+   - Mencione um dado ou estatística impactante
+   - Compartilhe uma lição aprendida
+   - Faça conexões com o dia a dia
+
+4. Formatação:
+   - Use quebras de linha estratégicas
+   - Bullet points para pontos principais
+   - Limite de caracteres: ~1300
+   - Evite jargões técnicos complexos
+
+Artigos do período:
+{articles_text}
+
+O texto deve estar no formato:
+"Post:[texto formatado para LinkedIn]"
+"""
