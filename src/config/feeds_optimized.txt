@@ -1,0 +1,83 @@
+# Optimized RSS Feeds for Product Management
+# Based on diagnostics results - working feeds only (79.4% success rate)
+# Removed duplicates and known blocked/empty feeds
+
+# Bing News RSS - Working
+https://www.bing.com/news/search?q=Product+management&format=rss
+
+# Mind the Product - Working
+https://www.mindtheproduct.com/feed/
+
+# Product Talk - Working
+https://www.producttalk.org/feed/
+
+# Roman Pichler - Working
+https://www.romanpichler.com/feed/
+
+# UX Design Newsletter - Working
+https://newsletter.uxdesign.cc/feed
+
+# Product Talk Daily - Working
+https://producttalkdaily.substack.com/feed
+
+# Get Product People - Working
+https://getproductpeople.substack.com/feed
+
+# Cutlefish by John Cutler - Working
+https://cutlefish.substack.com/feed
+
+# SVPG Articles - Working
+https://www.svpg.com/articles/feed/
+
+# Product Managers Newsletter - Working
+https://productmanagers.substack.com/feed
+
+# Growth Unhinged - Working
+https://www.growthunhinged.com/feed
+
+# Deb Pereira's Newsletter - Working
+https://dpereira.substack.com/feed
+
+# Lenny's Newsletter - Working
+https://www.lennysnewsletter.com/feed
+
+# Product Thinking - Working
+https://www.productthinking.cc/feed
+
+# Aakash's News - Working
+https://www.news.aakashg.com/feed
+
+# Leah Tharin - Working
+https://www.leahtharin.com/feed
+
+# Product Compass - Working
+https://www.productcompass.pm/feed
+
+# The Product Guy Blog - Working
+https://tpgblog.com/feed/
+
+# Sachin Rekhi - Working
+https://www.sachinrekhi.com/rss
+
+# Hacker Noon - Working
+https://hackernoon.com/feed
+
+# Product Talk Blog - Working
+https://www.producttalk.org/blog/feed/
+
+# Elezea - Working
+https://elezea.com/blog/feed/
+
+# Product Coalition - Working
+https://www.productcoalition.com/feed
+
+# Intercom Blog - Working
+https://www.intercom.com/blog/feed/
+
+# Note: The following feeds were removed due to issues:
+# BLOCKED: https://theproductmanager.com/feed/ (403 Forbidden)
+# BLOCKED: https://www.bringthedonuts.com/blog/ (Access denied)
+# EMPTY: https://www.productplan.com/blog/feed/ (No items found)
+# EMPTY: https://melissaperri.com/blog (No RSS format)
+# EMPTY: https://www.carlsnewsletter.com/?format=rss (No items found)
+# EMPTY: https://www.productmanagementtoday.com/product-management/ (No items found)

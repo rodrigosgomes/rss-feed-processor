@@ -60,6 +60,27 @@ jobs:
             echo " Using RECIPIENT_EMAIL environment variable instead"
           fi
       
+      - name: Debug environment variables
+        env:
+          SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SENDER_EMAIL: ${{ secrets.SENDER_EMAIL }}
+          SENDER_PASSWORD: ${{ secrets.SENDER_PASSWORD }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
+        run: |
+          echo "=== Environment Variables Debug ==="
+          echo "SMTP_SERVER is set: $(if [ -n "$SMTP_SERVER" ]; then echo 'YES'; else echo 'NO - MISSING!'; fi)"
+          echo "SMTP_PORT is set: $(if [ -n "$SMTP_PORT" ]; then echo 'YES'; else echo 'NO - MISSING!'; fi)"
+          echo "SENDER_EMAIL is set: $(if [ -n "$SENDER_EMAIL" ]; then echo 'YES'; else echo 'NO - MISSING!'; fi)"
+          echo "SENDER_PASSWORD is set: $(if [ -n "$SENDER_PASSWORD" ]; then echo 'YES (hidden)'; else echo 'NO - MISSING!'; fi)"
+          echo "GEMINI_API_KEY is set: $(if [ -n "$GEMINI_API_KEY" ]; then echo 'YES (hidden)'; else echo 'NO - MISSING!'; fi)"
+          echo "RECIPIENT_EMAIL is set: $(if [ -n "$RECIPIENT_EMAIL" ]; then echo 'YES'; else echo 'NO - MISSING!'; fi)"
+          echo "SMTP Server: $SMTP_SERVER"
+          echo "Sender Email: $SENDER_EMAIL"
+          echo "Recipient Email: $RECIPIENT_EMAIL"
+          echo "=== End Debug ==="
+      
       - name: Run RSS processor
         id: rss-processor
         timeout-minutes: 15
