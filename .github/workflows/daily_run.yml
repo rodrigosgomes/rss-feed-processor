@@ -41,18 +41,23 @@ jobs:
           # Verify critical dependencies
           python -c "import sys; import pytz; import google.generativeai; print('Python:', sys.version); print('Pytz:', pytz.__version__); print('Dependencies OK')"
           
-      - name: Validate environment variables
+      - name: Check configuration files
         run: |
-          echo "Checking required environment variables..."
-          if [ -z "${{ secrets.RSS_FEED_URLS }}" ]; then
-            echo "Error: RSS_FEED_URLS secret is not set"
-            exit 1
+          echo "Checking configuration files..."
+          if [ -f "config/feeds.txt" ]; then
+            echo "✓ feeds.txt found"
+            echo "Feeds configured:"
+            cat config/feeds.txt
+          else
+            echo "⚠ feeds.txt not found in config/"
           fi
-          if [ -z "${{ secrets.RECIPIENT_EMAIL }}" ]; then
-            echo "Error: RECIPIENT_EMAIL secret is not set"
-            exit 1
+          if [ -f "config/recipients.txt" ]; then
+            echo "✓ recipients.txt found"
+            echo "Recipients configured:"
+            cat config/recipients.txt
+          else
+            echo "⚠ recipients.txt not found in config/"
           fi
-          echo "Environment validation passed"
       
       - name: Run RSS processor
         id: rss-processor
@@ -62,14 +67,11 @@ jobs:
           SMTP_PORT: ${{ secrets.SMTP_PORT }}
           SENDER_EMAIL: ${{ secrets.SENDER_EMAIL }}
           SENDER_PASSWORD: ${{ secrets.SENDER_PASSWORD }}
-          RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
-          RSS_FEED_URLS: "${{ secrets.RSS_FEED_URLS }}"
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
           echo "Starting RSS feed processing..."
-          echo "Using RSS feeds: $RSS_FEED_URLS"
-          echo "Recipient email: $RECIPIENT_EMAIL"
+          echo "SMTP Server: $SMTP_SERVER"
+          echo "Sender Email: $SENDER_EMAIL"
           python src/main.py
           echo "RSS processing completed successfully"
           
