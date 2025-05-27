@@ -72,12 +72,15 @@ if not RSS_FEED_URLS:  # Fallback to environment variable if file is empty or do
     RSS_FEED_URLS = [url.strip() for url in os.getenv('RSS_FEED_URLS', '').split(',') if url.strip()]
 validate_rss_feeds(RSS_FEED_URLS)
 
-# Get recipients from file
-recipients = read_file_lines(str(recipients_file))
-recipient_email = recipients[0] if recipients else os.getenv("RECIPIENT_EMAIL")
+# Get recipients - prioritize environment variable for GitHub Actions
+recipient_email = os.getenv("RECIPIENT_EMAIL")
+if not recipient_email:
+    # Fallback to file if environment variable is not set
+    recipients = read_file_lines(str(recipients_file))
+    recipient_email = recipients[0] if recipients else None
 
 if not recipient_email:
-    raise ConfigurationError("No recipient email found in recipients.txt or environment variables")
+    raise ConfigurationError("No recipient email found in recipients.txt or RECIPIENT_EMAIL environment variable")
 
 # Get and validate email settings
 EMAIL_SETTINGS = {
