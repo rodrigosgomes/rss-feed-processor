@@ -44,19 +44,19 @@ jobs:
       - name: Check configuration files
         run: |
           echo "Checking configuration files..."
-          if [ -f "config/feeds.txt" ]; then
+          if [ -f "src/config/feeds.txt" ]; then
             echo " feeds.txt found"
             echo "Feeds configured:"
-            cat config/feeds.txt
+            head -10 src/config/feeds.txt
           else
-            echo " feeds.txt not found in config/"
+            echo " feeds.txt not found in src/config/"
           fi
-          if [ -f "config/recipients.txt" ]; then
+          if [ -f "src/config/recipients.txt" ]; then
             echo " recipients.txt found"
             echo "Recipients configured:"
-            cat config/recipients.txt
+            cat src/config/recipients.txt
           else
-            echo " recipients.txt not found in config/"
+            echo " recipients.txt not found in src/config/"
           fi
       
       - name: Run RSS processor
