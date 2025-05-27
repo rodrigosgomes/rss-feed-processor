@@ -44,10 +44,16 @@ def validate_api_key(api_key: str) -> bool:
     return True
 
 def read_file_lines(filepath: str) -> List[str]:
-    """Read lines from a file and return non-empty lines"""
+    """Read lines from a file and return non-empty lines, filtering out comments"""
     try:
         with open(filepath, 'r', encoding='utf-8') as f:
-            return [line.strip() for line in f if line.strip()]
+            lines = []
+            for line in f:
+                line = line.strip()
+                # Skip empty lines and comments (lines starting with #)
+                if line and not line.startswith('#'):
+                    lines.append(line)
+            return lines
     except FileNotFoundError:
         logger.warning(f"Configuration file not found: {filepath}")
         return []

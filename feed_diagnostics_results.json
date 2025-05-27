@@ -1,0 +1,855 @@
+{
+  "individual_results": [
+    {
+      "url": "https://www.bing.com/news/search?q=Product+management&format=rss",
+      "accessible": true,
+      "content_type": "application/xml; charset=utf-8",
+      "status_code": 200,
+      "error": null,
+      "items_found": 10,
+      "feed_type": "RSS",
+      "sample_items": [
+        {
+          "title": "I mentor startups outside my Meta product job. I tell founders to take 3 steps to sell their AI vision.",
+          "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=683517defbab4cdeaf800f414376f3f2&url=https%3a%2f%2fwww.msn.com%2fen-us%2fmoney%2fsmallbusiness%2fi-mentor-startups-outside-my-meta-product-job-i-tell-founders-to-take-3-steps-to-sell-their-ai-vision%2far-AA1FsHpT&c=618202312792188015&mkt=pt-br"
+        },
+        {
+          "title": "What does a product management specialist do?",
+          "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=683517defbab4cdeaf800f414376f3f2&url=https%3a%2f%2fwww.linkedin.com%2fadvice%2f3%2fwhat-does-product-management-specialist-do-qfwuf&c=11079326829938007925&mkt=pt-br"
+        },
+        {
+          "title": "Having trouble with Shopee product management? Odoo has a ready-to-use solution",
+          "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=683517defbab4cdeaf800f414376f3f2&url=https%3a%2f%2fwww.rappler.com%2fbrandrap%2fodoo-shopee-connector%2f&c=2179592564884425073&mkt=pt-br"
+        }
+      ],
+      "date_formats": [],
+      "working_headers": 1,
+      "parsing_strategy": "ElementTree_Standard"
+    },
+    {
+      "url": "https://www.productplan.com/blog/feed/",
+      "accessible": true,
+      "content_type": "application/rss+xml; charset=UTF-8",
+      "status_code": 200,
+      "error": null,
+      "items_found": 0,
+      "feed_type": null,
+      "sample_items": [],
+      "date_formats": [],
+      "working_headers": 4,
+      "parsing_strategy": null
+    },
+    {
+      "url": "https://www.mindtheproduct.com/feed/",
+      "accessible": true,
+      "content_type": "application/rss+xml; charset=UTF-8",
+      "status_code": 200,
+      "error": null,
+      "items_found": 10,
+      "feed_type": "RSS",
+      "sample_items": [
+        {
+          "title": "Sunday Rewind: Top 7 signs you’re in a bad product system by Scott Williamson",
+          "link": "https://www.mindtheproduct.com/seven-signs-that-you-may-be-in-a-bad-product-system/"
+        },
+        {
+          "title": "How one Hackathon sparked a whole new product at Transifex: Maya Toutountzi (Head of Product) — Product Unplugged",
+          "link": "https://www.mindtheproduct.com/how-one-hackathon-sparked-a-whole-new-product-at-transifex-maya-toutountzi-head-of-product-product-unplugged/"
+        },
+        {
+          "title": "World Product Day: Your 2025 award winners",
+          "link": "https://www.mindtheproduct.com/world-product-day-your-2025-award-winners/"
+        }
+      ],
+      "date_formats": [],
+      "working_headers": 1,
+      "parsing_strategy": "ElementTree_Standard"
+    },
+    {
+      "url": "https://www.producttalk.org/feed/",
+      "accessible": true,
+      "content_type": "application/rss+xml; charset=UTF-8",
+      "status_code": 200,
+      "error": null,
+      "items_found": 10,
+      "feed_type": "RSS",
+      "sample_items": [
+        {
+          "title": "Ask Teresa: Do Product Teams Really Ship Value Weekly?",
+          "link": "https://www.producttalk.org/2025/05/ship-value-weekly/?utm_source=rss&utm_medium=rss&utm_campaign=ship-value-weekly"
+        },
+        {
+          "title": "Product in Practice: Evaluating If a New API is Needed",
+          "link": "https://www.producttalk.org/2025/05/evaluating-a-new-api/?utm_source=rss&utm_medium=rss&utm_campaign=evaluating-a-new-api"
+        },
+        {
+          "title": "Product in Practice: Transitioning Customers to a New API",
+          "link": "https://www.producttalk.org/2025/05/transitioning-customers-api/?utm_source=rss&utm_medium=rss&utm_campaign=transitioning-customers-api"
+        }
+      ],
+      "date_formats": [],
+      "working_headers": 2,
+      "parsing_strategy": "ElementTree_Standard"
+    },
+    {
+      "url": "https://www.romanpichler.com/feed/",
+      "accessible": true,
+      "content_type": "application/rss+xml; charset=UTF-8",
+      "status_code": 200,
+      "error": null,
+      "items_found": 10,
+      "feed_type": "RSS",
+      "sample_items": [
+        {
+          "title": "The Innovation Ambition Matrix",
+          "link": "https://www.romanpichler.com/blog/innovation-ambition-matrix/"
+        },
+        {
+          "title": "AI and Product Strategy",
+          "link": "https://www.romanpichler.com/blog/ai-and-product-strategy/"
+        },
+        {
+          "title": "Setting up Product Teams for Success",
+          "link": "https://www.romanpichler.com/blog/setting-up-product-teams-for-success/"
+        }
+      ],
+      "date_formats": [],
+      "working_headers": 1,
+      "parsing_strategy": "ElementTree_Standard"
+    },
+    {
+      "url": "https://newsletter.uxdesign.cc/feed",
+      "accessible": true,
+      "content_type": "application/xml; charset=utf-8",
+      "status_code": 200,
+      "error": null,
+      "items_found": 20,
+      "feed_type": "RSS",
+      "sample_items": [
+        {
+          "title": "The perverse incentives of Vibe Coding",
+          "link": "https://newsletter.uxdesign.cc/p/the-perverse-incentives-of-vibe-coding"
+        },
+        {
+          "title": "Why I skipped Figma and prototyped in code instead",
+          "link": "https://newsletter.uxdesign.cc/p/why-i-skipped-figma-and-prototyped"
+        },
+        {
+          "title": "The unbearable lightness of big tech",
+          "link": "https://newsletter.uxdesign.cc/p/the-unbearable-lightness-of-big-tech"
+        }
+      ],
+      "date_formats": [],
+      "working_headers": 1,
+      "parsing_strategy": "ElementTree_Standard"
+    },
+    {
+      "url": "https://producttalkdaily.substack.com/feed",
+      "accessible": true,
+      "content_type": "application/xml; charset=utf-8",
+      "status_code": 200,
+      "error": null,
+      "items_found": 20,
+      "feed_type": "RSS",
+      "sample_items": [
+        {
+          "title": "Product Talk Daily: Feelings aren’t opportunities.",
+          "link": "https://producttalkdaily.substack.com/p/product-talk-daily-feelings-arent-fc8"
+        },
+        {
+          "title": "Product Talk Daily: 6 Guiding Principles for Effective Product Discovery",
+          "link": "https://producttalkdaily.substack.com/p/product-talk-daily-6-guiding-principles-134"
+        },
+        {
+          "title": "Product Talk Daily: Core Concept: What Roles are Represented in a Product Trio?",
+          "link": "https://producttalkdaily.substack.com/p/product-talk-daily-core-concept-what-b4f"
+        }
+      ],
+      "date_formats": [],
+      "working_headers": 1,
+      "parsing_strategy": "ElementTree_Standard"
+    },
+    {
+      "url": "https://www.mindtheproduct.com/feed/",
+      "accessible": true,
+      "content_type": "application/rss+xml; charset=UTF-8",
+      "status_code": 200,
+      "error": null,
+      "items_found": 10,
+      "feed_type": "RSS",
+      "sample_items": [
+        {
+          "title": "Sunday Rewind: Top 7 signs you’re in a bad product system by Scott Williamson",
+          "link": "https://www.mindtheproduct.com/seven-signs-that-you-may-be-in-a-bad-product-system/"
+        },
+        {
+          "title": "How one Hackathon sparked a whole new product at Transifex: Maya Toutountzi (Head of Product) — Product Unplugged",
+          "link": "https://www.mindtheproduct.com/how-one-hackathon-sparked-a-whole-new-product-at-transifex-maya-toutountzi-head-of-product-product-unplugged/"
+        },
+        {
+          "title": "World Product Day: Your 2025 award winners",
+          "link": "https://www.mindtheproduct.com/world-product-day-your-2025-award-winners/"
+        }
+      ],
+      "date_formats": [],
+      "working_headers": 1,
+      "parsing_strategy": "ElementTree_Standard"
+    },
+    {
+      "url": "https://getproductpeople.substack.com/feed",
+      "accessible": true,
+      "content_type": "application/xml; charset=utf-8",
+      "status_code": 200,
+      "error": null,
+      "items_found": 20,
+      "feed_type": "RSS",
+      "sample_items": [
+        {
+          "title": "PM 101 series: Your Ideas Aren’t Bad—But Your Discovery Might Be",
+          "link": "https://getproductpeople.substack.com/p/pm-101-series-your-ideas-arent-badbut"
+        },
+        {
+          "title": "Mindful Spring-Cleaning: Mental Health Tips for PMs, by PMs",
+          "link": "https://getproductpeople.substack.com/p/spring-clean-your-mind-not-just-your"
+        },
+        {
+          "title": "International Women's Day in Product People: Meet Our Traiblazers",
+          "link": "https://getproductpeople.substack.com/p/international-womens-day-in-product"
+        }
+      ],
+      "date_formats": [],
+      "working_headers": 1,
+      "parsing_strategy": "ElementTree_Standard"
+    },
+    {
+      "url": "https://cutlefish.substack.com/feed",
+      "accessible": true,
+      "content_type": "application/xml; charset=utf-8",
+      "status_code": 200,
+      "error": null,
+      "items_found": 20,
+      "feed_type": "RSS",
+      "sample_items": [
+        {
+          "title": "TBM 359: Process Person",
+          "link": "https://cutlefish.substack.com/p/tbm-359-process-person"
+        },
+        {
+          "title": "TBM 358: The Genius of SVPG",
+          "link": "https://cutlefish.substack.com/p/tbm-358-the-genius-of-svpg"
+        },
+        {
+          "title": "TBM 357: Perspectives on Change and Improvement",
+          "link": "https://cutlefish.substack.com/p/tbm-357-perspectives-on-change-and"
+        }
+      ],
+      "date_formats": [],
+      "working_headers": 1,
+      "parsing_strategy": "ElementTree_Standard"
+    },
+    {
+      "url": "https://www.svpg.com/articles/feed/",
+      "accessible": true,
+      "content_type": "application/rss+xml; charset=UTF-8",
+      "status_code": 200,
+      "error": null,
+      "items_found": 15,
+      "feed_type": "RSS",
+      "sample_items": [
+        {
+          "title": "INSPIRED in the Generative AI Era",
+          "link": "https://www.svpg.com/inspired-in-the-generative-ai-era/"
+        },
+        {
+          "title": "Team Autonomy and AI",
+          "link": "https://www.svpg.com/team-autonomy-and-ai/"
+        },
+        {
+          "title": "Product, Design and AI",
+          "link": "https://www.svpg.com/product-design-and-ai/"
+        }
+      ],
+      "date_formats": [],
+      "working_headers": 1,
+      "parsing_strategy": "ElementTree_Standard"
+    },
+    {
+      "url": "https://theproductmanager.com/feed/",
+      "accessible": false,
+      "content_type": null,
+      "status_code": null,
+      "error": null,
+      "items_found": 0,
+      "feed_type": null,
+      "sample_items": [],
+      "date_formats": [],
+      "working_headers": null,
+      "parsing_strategy": null
+    },
+    {
+      "url": "https://melissaperri.com/blog",
+      "accessible": true,
+      "content_type": "text/html;charset=utf-8",
+      "status_code": 200,
+      "error": null,
+      "items_found": 0,
+      "feed_type": null,
+      "sample_items": [],
+      "date_formats": [],
+      "working_headers": 4,
+      "parsing_strategy": null
+    },
+    {
+      "url": "https://productmanagers.substack.com/feed",
+      "accessible": true,
+      "content_type": "application/xml; charset=utf-8",
+      "status_code": 200,
+      "error": null,
+      "items_found": 20,
+      "feed_type": "RSS",
+      "sample_items": [
+        {
+          "title": "How to be More Strategic: How Samuel Odio led FiveStars out of a slowdown and into a $317m acquisition",
+          "link": "https://productmanagers.substack.com/p/decoding-strategy-how-one-cpo-led"
+        },
+        {
+          "title": "Decoding Behavioral Interviewing: Strategies for Success",
+          "link": "https://productmanagers.substack.com/p/decoding-behavioral-interviewing"
+        },
+        {
+          "title": "How to Gain an Edge as a B2B PM",
+          "link": "https://productmanagers.substack.com/p/how-to-gain-an-edge-as-a-b2b-pm"
+        }
+      ],
+      "date_formats": [],
+      "working_headers": 1,
+      "parsing_strategy": "ElementTree_Standard"
+    },
+    {
+      "url": "https://www.growthunhinged.com/feed",
+      "accessible": true,
+      "content_type": "application/xml; charset=utf-8",
+      "status_code": 200,
+      "error": null,
+      "items_found": 20,
+      "feed_type": "RSS",
+      "sample_items": [
+        {
+          "title": "Intercom's decisive bet on AI",
+          "link": "https://www.growthunhinged.com/p/intercoms-bet-on-ai"
+        },
+        {
+          "title": "You need a better testing strategy",
+          "link": "https://www.growthunhinged.com/p/testing-strategy"
+        },
+        {
+          "title": "Inside a high velocity sales-assisted GTM motion",
+          "link": "https://www.growthunhinged.com/p/pylon-growth-story"
+        }
+      ],
+      "date_formats": [],
+      "working_headers": 1,
+      "parsing_strategy": "ElementTree_Standard"
+    },
+    {
+      "url": "https://dpereira.substack.com/feed",
+      "accessible": true,
+      "content_type": "application/xml; charset=utf-8",
+      "status_code": 200,
+      "error": null,
+      "items_found": 20,
+      "feed_type": "RSS",
+      "sample_items": [
+        {
+          "title": "How to Craft an Engaging Elevator Pitch",
+          "link": "https://dpereira.substack.com/p/how-to-craft-an-engaging-elevator"
+        },
+        {
+          "title": "Why AI Is Dangerous for Most Teams",
+          "link": "https://dpereira.substack.com/p/why-ai-is-dangerous-for-most-teams"
+        },
+        {
+          "title": "How to Lead with Impact: 5 Mistakes Great Product Leaders Don't Make",
+          "link": "https://dpereira.substack.com/p/how-to-lead-with-impact-5-mistakes"
+        }
+      ],
+      "date_formats": [],
+      "working_headers": 1,
+      "parsing_strategy": "ElementTree_Standard"
+    },
+    {
+      "url": "https://www.lennysnewsletter.com/feed",
+      "accessible": true,
+      "content_type": "application/xml; charset=utf-8",
+      "status_code": 200,
+      "error": null,
+      "items_found": 20,
+      "feed_type": "RSS",
+      "sample_items": [
+        {
+          "title": "A 3-step AI coding workflow for solo founders | Ryan Carson (5x founder)",
+          "link": "https://www.lennysnewsletter.com/p/a-3-step-ai-coding-workflow-for-solo"
+        },
+        {
+          "title": "Growth tactics from OpenAI and Stripe’s first marketer | Krithika Shankarraman",
+          "link": "https://www.lennysnewsletter.com/p/growth-tactics-from-openai-and-stripes-first-marketer"
+        },
+        {
+          "title": "🧠 Community Wisdom: Building great working relationships with different functions, strategy at B2B vs. B2C companies, PC to Mac transition tips, hiring interns, and more",
+          "link": "https://www.lennysnewsletter.com/p/community-wisdom-building-great-working"
+        }
+      ],
+      "date_formats": [],
+      "working_headers": 1,
+      "parsing_strategy": "ElementTree_Standard"
+    },
+    {
+      "url": "https://www.productthinking.cc/feed",
+      "accessible": true,
+      "content_type": "application/xml; charset=utf-8",
+      "status_code": 200,
+      "error": null,
+      "items_found": 20,
+      "feed_type": "RSS",
+      "sample_items": [
+        {
+          "title": "Google I/O, AI Reading List, Apple Glasses, Jony Ive, and Proving Yourself",
+          "link": "https://www.productthinking.cc/p/google-io-ai-reading-list-apple-glasses"
+        },
+        {
+          "title": "The Making of a Manager",
+          "link": "https://www.productthinking.cc/p/the-making-of-a-manager"
+        },
+        {
+          "title": "Agentic Tools, Figma, Airbnb, HBO, Roman Concrete and Happy Meals",
+          "link": "https://www.productthinking.cc/p/agentic-tools-figma-airbnb-hbo-roman"
+        }
+      ],
+      "date_formats": [],
+      "working_headers": 1,
+      "parsing_strategy": "ElementTree_Standard"
+    },
+    {
+      "url": "https://www.news.aakashg.com/feed",
+      "accessible": true,
+      "content_type": "application/xml; charset=utf-8",
+      "status_code": 200,
+      "error": null,
+      "items_found": 20,
+      "feed_type": "RSS",
+      "sample_items": [
+        {
+          "title": "Vanta ($2.4B) CPO: \"My Whole Org has v0 Licenses\"",
+          "link": "https://www.news.aakashg.com/p/jeremy-epling-podcast"
+        },
+        {
+          "title": "What Product Management Interviewers Care About: Insights from 500+ Interviews",
+          "link": "https://www.news.aakashg.com/p/pm-interviewers"
+        },
+        {
+          "title": "Product Strategy Masterclass from Global Authority on Strategy",
+          "link": "https://www.news.aakashg.com/p/roger-martin-podcast"
+        }
+      ],
+      "date_formats": [],
+      "working_headers": 1,
+      "parsing_strategy": "ElementTree_Standard"
+    },
+    {
+      "url": "https://www.carlsnewsletter.com/?format=rss",
+      "accessible": true,
+      "content_type": "text/html; charset=utf-8",
+      "status_code": 200,
+      "error": null,
+      "items_found": 0,
+      "feed_type": null,
+      "sample_items": [],
+      "date_formats": [],
+      "working_headers": 4,
+      "parsing_strategy": null
+    },
+    {
+      "url": "https://www.productmanagementtoday.com/product-management/",
+      "accessible": true,
+      "content_type": "text/html; charset=utf-8",
+      "status_code": 200,
+      "error": null,
+      "items_found": 0,
+      "feed_type": null,
+      "sample_items": [],
+      "date_formats": [],
+      "working_headers": 4,
+      "parsing_strategy": null
+    },
+    {
+      "url": "https://www.leahtharin.com/feed",
+      "accessible": true,
+      "content_type": "application/xml; charset=utf-8",
+      "status_code": 200,
+      "error": null,
+      "items_found": 20,
+      "feed_type": "RSS",
+      "sample_items": [
+        {
+          "title": "108: Etie Hertz - Why customer empathy is the ultimate moat in the chatbot apocalypse",
+          "link": "https://www.leahtharin.com/p/108-etie-hertz-why-customer-empathy"
+        },
+        {
+          "title": "The future of Product-led Growth with AI powered CRMs",
+          "link": "https://www.leahtharin.com/p/the-future-of-product-led-growth"
+        },
+        {
+          "title": "107: Andres Glusman: Why Your A/B Tests Are Lying (and How to Fix Them)",
+          "link": "https://www.leahtharin.com/p/107-andres-glusman-why-your-ab-tests"
+        }
+      ],
+      "date_formats": [],
+      "working_headers": 1,
+      "parsing_strategy": "ElementTree_Standard"
+    },
+    {
+      "url": "https://www.productcompass.pm/feed",
+      "accessible": true,
+      "content_type": "application/xml; charset=utf-8",
+      "status_code": 200,
+      "error": null,
+      "items_found": 20,
+      "feed_type": "RSS",
+      "sample_items": [
+        {
+          "title": "WTF is an AI Product Manager?",
+          "link": "https://www.productcompass.pm/p/what-is-an-ai-product-manager"
+        },
+        {
+          "title": "Beyond Vibe Coding: No-Code B2C SaaS Template With Stripe Payments",
+          "link": "https://www.productcompass.pm/p/lovalbe-saas-b2c-template-stripe"
+        },
+        {
+          "title": "AI Agent Architectures: The Ultimate Guide With n8n Examples",
+          "link": "https://www.productcompass.pm/p/ai-agent-architectures"
+        }
+      ],
+      "date_formats": [],
+      "working_headers": 1,
+      "parsing_strategy": "ElementTree_Standard"
+    },
+    {
+      "url": "https://tpgblog.com/feed/",
+      "accessible": true,
+      "content_type": "application/rss+xml; charset=UTF-8",
+      "status_code": 200,
+      "error": null,
+      "items_found": 10,
+      "feed_type": "RSS",
+      "sample_items": [
+        {
+          "title": "Coaching and Discovery in Product. What High-Performing Teams Are Doing Differently [TPG Live Recap]",
+          "link": "https://tpgblog.com/2025/05/23/coaching-and-discovery-in-product-what-high-performing-teams-are-doing-differently-tpg-live-recap/"
+        },
+        {
+          "title": "What Is Broken with Product Management Tools and What Works Instead",
+          "link": "https://tpgblog.com/2025/05/23/what-is-broken-with-product-management-tools-and-what-works-instead/"
+        },
+        {
+          "title": "The Most Underrated Product Move: Removal",
+          "link": "https://tpgblog.com/2025/05/21/the-most-underrated-product-move-removal/"
+        }
+      ],
+      "date_formats": [],
+      "working_headers": 1,
+      "parsing_strategy": "ElementTree_Standard"
+    },
+    {
+      "url": "https://www.bringthedonuts.com/blog/",
+      "accessible": false,
+      "content_type": null,
+      "status_code": null,
+      "error": null,
+      "items_found": 0,
+      "feed_type": null,
+      "sample_items": [],
+      "date_formats": [],
+      "working_headers": null,
+      "parsing_strategy": null
+    },
+    {
+      "url": "https://www.sachinrekhi.com/rss",
+      "accessible": true,
+      "content_type": "text/html; charset=utf-8",
+      "status_code": 200,
+      "error": null,
+      "items_found": 50,
+      "feed_type": "RSS",
+      "sample_items": [
+        {
+          "title": "Playing to Win by Roger Martin",
+          "link": "https://www.sachinrekhi.com/playing-to-win-roger-martin"
+        },
+        {
+          "title": "Good Strategy, Bad Strategy by Richard Rumelt",
+          "link": "https://www.sachinrekhi.com/good-strategy-bad-strategy-richard-rumelt"
+        },
+        {
+          "title": "Porter's Five Forces Analysis",
+          "link": "https://www.sachinrekhi.com/porter-five-forces-analysis"
+        }
+      ],
+      "date_formats": [],
+      "working_headers": 1,
+      "parsing_strategy": "ElementTree_Standard"
+    },
+    {
+      "url": "https://www.romanpichler.com/feed/",
+      "accessible": true,
+      "content_type": "application/rss+xml; charset=UTF-8",
+      "status_code": 200,
+      "error": null,
+      "items_found": 10,
+      "feed_type": "RSS",
+      "sample_items": [
+        {
+          "title": "The Innovation Ambition Matrix",
+          "link": "https://www.romanpichler.com/blog/innovation-ambition-matrix/"
+        },
+        {
+          "title": "AI and Product Strategy",
+          "link": "https://www.romanpichler.com/blog/ai-and-product-strategy/"
+        },
+        {
+          "title": "Setting up Product Teams for Success",
+          "link": "https://www.romanpichler.com/blog/setting-up-product-teams-for-success/"
+        }
+      ],
+      "date_formats": [],
+      "working_headers": 1,
+      "parsing_strategy": "ElementTree_Standard"
+    },
+    {
+      "url": "https://hackernoon.com/feed",
+      "accessible": true,
+      "content_type": "application/rss+xml",
+      "status_code": 200,
+      "error": null,
+      "items_found": 20,
+      "feed_type": "RSS",
+      "sample_items": [
+        {
+          "title": "Gomble Games Launches GOMBLE BUILDERS: A Web3 Game Creation Platform For Communities And The Masses",
+          "link": "https://hackernoon.com/gomble-games-launches-gomble-builders-a-web3-game-creation-platform-for-communities-and-the-masses?source=rss"
+        },
+        {
+          "title": "Saying No Could Be the Most Profitable Skill in Business (And Life)",
+          "link": "https://hackernoon.com/saying-no-could-be-the-most-profitable-skill-in-business-and-life?source=rss"
+        },
+        {
+          "title": "Threat Actors Targeting Your Supply Chain: What You Need to Know",
+          "link": "https://hackernoon.com/threat-actors-targeting-your-supply-chain-what-you-need-to-know?source=rss"
+        }
+      ],
+      "date_formats": [],
+      "working_headers": 1,
+      "parsing_strategy": "ElementTree_Standard"
+    },
+    {
+      "url": "https://www.producttalk.org/blog/feed/",
+      "accessible": true,
+      "content_type": "application/rss+xml; charset=UTF-8",
+      "status_code": 200,
+      "error": null,
+      "items_found": 10,
+      "feed_type": "RSS",
+      "sample_items": [
+        {
+          "title": "Ask Teresa: Do Product Teams Really Ship Value Weekly?",
+          "link": "https://www.producttalk.org/2025/05/ship-value-weekly/?utm_source=rss&utm_medium=rss&utm_campaign=ship-value-weekly"
+        },
+        {
+          "title": "Product in Practice: Evaluating If a New API is Needed",
+          "link": "https://www.producttalk.org/2025/05/evaluating-a-new-api/?utm_source=rss&utm_medium=rss&utm_campaign=evaluating-a-new-api"
+        },
+        {
+          "title": "Product in Practice: Transitioning Customers to a New API",
+          "link": "https://www.producttalk.org/2025/05/transitioning-customers-api/?utm_source=rss&utm_medium=rss&utm_campaign=transitioning-customers-api"
+        }
+      ],
+      "date_formats": [],
+      "working_headers": 2,
+      "parsing_strategy": "ElementTree_Standard"
+    },
+    {
+      "url": "https://elezea.com/blog/feed/",
+      "accessible": true,
+      "content_type": "text/xml; charset=UTF-8",
+      "status_code": 200,
+      "error": null,
+      "items_found": 8,
+      "feed_type": "RSS",
+      "sample_items": [
+        {
+          "title": "Career advice in 2025",
+          "link": "https://elezea.com/2025/03/career-advice-in-2025/"
+        },
+        {
+          "title": "Garbage",
+          "link": "https://elezea.com/2025/03/garbage/"
+        },
+        {
+          "title": "Huh? The valuable role of interjections",
+          "link": "https://elezea.com/2025/03/huh-the-valuable-role-of-interjections/"
+        }
+      ],
+      "date_formats": [],
+      "working_headers": 1,
+      "parsing_strategy": "ElementTree_Standard"
+    },
+    {
+      "url": "https://www.productcoalition.com/feed",
+      "accessible": true,
+      "content_type": "application/xml; charset=utf-8",
+      "status_code": 200,
+      "error": null,
+      "items_found": 20,
+      "feed_type": "RSS",
+      "sample_items": [
+        {
+          "title": "EP84 Challenges unique to AI products",
+          "link": "https://www.productcoalition.com/p/ep84-challenges-unique-to-ai-products"
+        },
+        {
+          "title": "BQ2 - Hybrid Org Structures: Pods, Holacracy and Guilds",
+          "link": "https://www.productcoalition.com/p/bq2-hybrid-org-structures-pods-holacracy"
+        },
+        {
+          "title": "BQ1 - Velocity Measurements",
+          "link": "https://www.productcoalition.com/p/week-1-velocity-measurements"
+        }
+      ],
+      "date_formats": [],
+      "working_headers": 1,
+      "parsing_strategy": "ElementTree_Standard"
+    },
+    {
+      "url": "https://www.intercom.com/blog/feed/",
+      "accessible": true,
+      "content_type": "application/rss+xml; charset=UTF-8",
+      "status_code": 200,
+      "error": null,
+      "items_found": 10,
+      "feed_type": "RSS",
+      "sample_items": [
+        {
+          "title": "Response Time: Vol. 45",
+          "link": "https://www.intercom.com/blog/response-time-vol-045/"
+        },
+        {
+          "title": "Introducing MCP: A new way to connect Fin and your customer data to your business tools",
+          "link": "https://www.intercom.com/blog/introducing-model-context-protocol-fin/"
+        },
+        {
+          "title": "Building trust through responsible AI: Intercom achieves ISO/IEC 42001 certification",
+          "link": "https://www.intercom.com/blog/intercom-achieves-iso-42001-certification/"
+        }
+      ],
+      "date_formats": [],
+      "working_headers": 1,
+      "parsing_strategy": "ElementTree_Standard"
+    },
+    {
+      "url": "https://www.svpg.com/articles/feed/",
+      "accessible": true,
+      "content_type": "application/rss+xml; charset=UTF-8",
+      "status_code": 200,
+      "error": null,
+      "items_found": 15,
+      "feed_type": "RSS",
+      "sample_items": [
+        {
+          "title": "INSPIRED in the Generative AI Era",
+          "link": "https://www.svpg.com/inspired-in-the-generative-ai-era/"
+        },
+        {
+          "title": "Team Autonomy and AI",
+          "link": "https://www.svpg.com/team-autonomy-and-ai/"
+        },
+        {
+          "title": "Product, Design and AI",
+          "link": "https://www.svpg.com/product-design-and-ai/"
+        }
+      ],
+      "date_formats": [],
+      "working_headers": 1,
+      "parsing_strategy": "ElementTree_Standard"
+    },
+    {
+      "url": "https://theproductmanager.com/feed/",
+      "accessible": false,
+      "content_type": null,
+      "status_code": null,
+      "error": null,
+      "items_found": 0,
+      "feed_type": null,
+      "sample_items": [],
+      "date_formats": [],
+      "working_headers": null,
+      "parsing_strategy": null
+    }
+  ],
+  "summary": {
+    "total_feeds": 34,
+    "accessible_feeds": 31,
+    "working_feeds": 27,
+    "blocked_feeds": 3,
+    "empty_feeds": 4,
+    "success_rate": "79.4%",
+    "feed_types": {
+      "RSS": 27
+    },
+    "parsing_strategies": {
+      "ElementTree_Standard": 27
+    },
+    "header_variants": {
+      "1": 25,
+      "2": 2
+    },
+    "blocked_feed_urls": [
+      "https://theproductmanager.com/feed/",
+      "https://www.bringthedonuts.com/blog/",
+      "https://theproductmanager.com/feed/"
+    ],
+    "empty_feed_urls": [
+      "https://www.productplan.com/blog/feed/",
+      "https://melissaperri.com/blog",
+      "https://www.carlsnewsletter.com/?format=rss",
+      "https://www.productmanagementtoday.com/product-management/"
+    ],
+    "working_feed_urls": [
+      "https://www.bing.com/news/search?q=Product+management&format=rss",
+      "https://www.mindtheproduct.com/feed/",
+      "https://www.producttalk.org/feed/",
+      "https://www.romanpichler.com/feed/",
+      "https://newsletter.uxdesign.cc/feed",
+      "https://producttalkdaily.substack.com/feed",
+      "https://www.mindtheproduct.com/feed/",
+      "https://getproductpeople.substack.com/feed",
+      "https://cutlefish.substack.com/feed",
+      "https://www.svpg.com/articles/feed/",
+      "https://productmanagers.substack.com/feed",
+      "https://www.growthunhinged.com/feed",
+      "https://dpereira.substack.com/feed",
+      "https://www.lennysnewsletter.com/feed",
+      "https://www.productthinking.cc/feed",
+      "https://www.news.aakashg.com/feed",
+      "https://www.leahtharin.com/feed",
+      "https://www.productcompass.pm/feed",
+      "https://tpgblog.com/feed/",
+      "https://www.sachinrekhi.com/rss",
+      "https://www.romanpichler.com/feed/",
+      "https://hackernoon.com/feed",
+      "https://www.producttalk.org/blog/feed/",
+      "https://elezea.com/blog/feed/",
+      "https://www.productcoalition.com/feed",
+      "https://www.intercom.com/blog/feed/",
+      "https://www.svpg.com/articles/feed/"
+    ]
+  }
+}

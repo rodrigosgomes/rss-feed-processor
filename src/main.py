@@ -9,6 +9,8 @@ from config.settings import RSS_FEED_URLS, EMAIL_SETTINGS, GEMINI_API_KEY
 from utils.gemini_client import GeminiClient
 import smtplib
 from utils.logger import logger
+import logging
+import sys
 
 def parse_args():
     parser = argparse.ArgumentParser(description='RSS Feed Processor')
@@ -18,7 +20,16 @@ def parse_args():
                       help='Comma-separated list of specific feeds to process')
     parser.add_argument('--dry-run', action='store_true',
                       help='Run without sending emails')
+    parser.add_argument('--debug', action='store_true',
+                      help='Enable debug logging')
     return parser.parse_args()
+
+def setup_logging(debug: bool = False):
+    level = logging.DEBUG if debug else logging.INFO
+    logger.setLevel(level)
+    # Ensure all handlers also respect the debug level
+    for handler in logger.handlers:
+        handler.setLevel(level)
 
 def get_feed_urls(args) -> List[str]:
     if args.feeds:
@@ -115,8 +126,9 @@ def process_news(days: int = 1, feed_urls: Optional[List[str]] = None, dry_run: 
         logger.error(f"Process failed: {str(e)}")
         raise
 
-if __name__ == "__main__":
+def main():
     args = parse_args()
+    setup_logging(args.debug)
     logger.info("=== Starting News Digest Application ===")
     logger.info(f"Command line arguments: days={args.days}, dry_run={args.dry_run}")
     
@@ -130,3 +142,6 @@ if __name__ == "__main__":
         logger.error("Connection tests failed. Please check your settings.")
     
     logger.info("=== Application Finished ===")
+
+if __name__ == "__main__":
+    main()
