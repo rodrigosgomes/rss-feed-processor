@@ -8,21 +8,55 @@ on:
 jobs:
   process-feeds:
     runs-on: ubuntu-latest
+    timeout-minutes: 30  # Prevent infinite hanging
+    
     steps:
-      - uses: actions/checkout@v3
-      
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.11'      - name: Install dependencies
+          python-version: '3.11'
+          
+      - name: Cache Python dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+          
+      - name: Install dependencies
+        timeout-minutes: 10
         run: |
           python -m pip install --upgrade pip
           python -m pip install --upgrade setuptools wheel
-          pip install -r requirements.txt
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          else
+            echo "Error: requirements.txt not found"
+            exit 1
+          fi
           # Verify critical dependencies
           python -c "import sys; import pytz; import google.generativeai; print('Python:', sys.version); print('Pytz:', pytz.__version__); print('Dependencies OK')"
+          
+      - name: Validate environment variables
+        run: |
+          echo "Checking required environment variables..."
+          if [ -z "${{ secrets.RSS_FEED_URLS }}" ]; then
+            echo "Error: RSS_FEED_URLS secret is not set"
+            exit 1
+          fi
+          if [ -z "${{ secrets.RECIPIENT_EMAIL }}" ]; then
+            echo "Error: RECIPIENT_EMAIL secret is not set"
+            exit 1
+          fi
+          echo "Environment validation passed"
       
       - name: Run RSS processor
+        id: rss-processor
+        timeout-minutes: 15
         env:
           SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
           SMTP_PORT: ${{ secrets.SMTP_PORT }}
@@ -33,5 +67,25 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
+          echo "Starting RSS feed processing..."
           echo "Using RSS feeds: $RSS_FEED_URLS"
+          echo "Recipient email: $RECIPIENT_EMAIL"
           python src/main.py
+          echo "RSS processing completed successfully"
+          
+      - name: Upload logs on failure
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: error-logs-${{ github.run_number }}
+          path: |
+            *.log
+            logs/
+          retention-days: 7
+          
+      - name: Notify on failure
+        if: failure()
+        run: |
+          echo "RSS Feed Processing failed. Check the logs for details."
+          echo "Run number: ${{ github.run_number }}"
+          echo "Commit SHA: ${{ github.sha }}"
