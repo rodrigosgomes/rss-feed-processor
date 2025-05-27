@@ -1,4 +1,4 @@
-name: Daily RSS Feed Processing
+﻿name: Daily RSS Feed Processing
 
 on:
   schedule:
@@ -20,7 +20,7 @@ jobs:
           python-version: '3.11'
           
       - name: Cache Python dependencies
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/.cache/pip
           key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
@@ -45,18 +45,18 @@ jobs:
         run: |
           echo "Checking configuration files..."
           if [ -f "config/feeds.txt" ]; then
-            echo "✓ feeds.txt found"
+            echo " feeds.txt found"
             echo "Feeds configured:"
             cat config/feeds.txt
           else
-            echo "⚠ feeds.txt not found in config/"
+            echo " feeds.txt not found in config/"
           fi
           if [ -f "config/recipients.txt" ]; then
-            echo "✓ recipients.txt found"
+            echo " recipients.txt found"
             echo "Recipients configured:"
             cat config/recipients.txt
           else
-            echo "⚠ recipients.txt not found in config/"
+            echo " recipients.txt not found in config/"
           fi
       
       - name: Run RSS processor
@@ -77,7 +77,7 @@ jobs:
           
       - name: Upload logs on failure
         if: failure()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: error-logs-${{ github.run_number }}
           path: |
