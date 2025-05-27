@@ -58,8 +58,10 @@ def read_file_lines(filepath: str) -> List[str]:
         logger.warning(f"Configuration file not found: {filepath}")
         return []
 
-# Load environment variables
-load_dotenv()
+# Load environment variables from the project root
+project_root = Path(__file__).parent.parent.parent  # Go up to project root
+env_file = project_root / '.env'
+load_dotenv(env_file)
 
 # Get config file paths
 config_dir = Path(__file__).parent
