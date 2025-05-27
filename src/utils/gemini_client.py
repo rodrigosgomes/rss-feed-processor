@@ -10,12 +10,11 @@ class GeminiClient:
         self.model = None
         self.retry_count = 3
         self.base_delay = 5  # Base delay in seconds
-        self.max_delay = 60  # Maximum delay in seconds
-        # Correct model names for free Gemma models
+        self.max_delay = 60  # Maximum delay in seconds        # Correct model names for free Gemma models
         self.free_models = ['models/gemma-3-1b-it', 'models/gemma-3-4b-it', 'models/gemma-3-12b-it', 'models/gemma-3-27b-it']
         self.current_model_index = 0  # Track which model we're currently using
 
-    def initialize_model(self, model_name='gemini-1.5-pro-latest'):
+    def initialize_model(self, model_name='gemini-1.5-flash'):
         """Initialize the Gemini model with retries and fallback to free models"""
         self.preferred_model = model_name
         return self._try_initialize_model(model_name)
