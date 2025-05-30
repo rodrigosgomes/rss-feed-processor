@@ -26,19 +26,39 @@ class EmailSender:
                 raise EmailSendError("No news items to send")
 
             logger.info("=== Preparing Email ===")
+            logger.info(f"Input data type: {type(news_by_date)}")
+            logger.info(f"Input data keys: {list(news_by_date.keys()) if hasattr(news_by_date, 'keys') else 'Not a dict'}")
+            logger.info(f"Input data key types: {[type(k) for k in news_by_date.keys()] if hasattr(news_by_date, 'keys') else 'Not a dict'}")
             
             # Separate news items and LinkedIn content
             filtered_news = {}
             linkedin_content = None
             
             for key, value in news_by_date.items():
-                if isinstance(key, datetime) or isinstance(key, str) and key != 'linkedin_content':
+                logger.info(f"Processing key: {key} (type: {type(key)}), value type: {type(value)}")
+                
+                if (isinstance(key, datetime) or 
+                    isinstance(key, str) or 
+                    hasattr(key, 'year')) and key != 'linkedin_content':  # Include date objects
+                    logger.info(f"Key {key} passed filter check")
                     if isinstance(value, dict) and 'items' in value:
+                        logger.info(f"Value has 'items' key with {len(value['items'])} items")
                         filtered_news[key] = value
+                    else:
+                        logger.info(f"Value structure: {value if isinstance(value, dict) else type(value)}")
                 elif key == 'linkedin_content':
+                    logger.info("Found LinkedIn content")
                     linkedin_content = value
+                else:
+                    logger.info(f"Key {key} failed filter check")
 
+            logger.info(f"Filtered news keys: {list(filtered_news.keys())}")
             if not filtered_news:
+                logger.error("=== DEBUG INFO ===")
+                logger.error(f"Original data: {news_by_date}")
+                logger.error(f"Original data structure: {type(news_by_date)}")
+                for k, v in news_by_date.items():
+                    logger.error(f"Key: {k} ({type(k)}), Value: {v} ({type(v)})")
                 raise EmailSendError("No valid news items found in data")
 
             total_articles = sum(len(date_data['items']) for date_data in filtered_news.values())

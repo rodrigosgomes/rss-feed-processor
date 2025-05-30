@@ -105,6 +105,11 @@ def process_news(days: int = 1, feed_urls: Optional[List[str]] = None, dry_run: 
         # Generate the summary grouped by day
         summary = summarizer.summarize(news_items, days=days)
         
+        logger.info("=== SUMMARIZER OUTPUT DEBUG ===")
+        logger.info(f"Summary type: {type(summary)}")
+        logger.info(f"Summary keys: {list(summary.keys()) if hasattr(summary, 'keys') else 'Not a dict'}")
+        logger.info(f"Summary content: {summary}")
+        
         if not summary:
             logger.warning("No summaries generated. Check the Gemini API connection.")
             return
