@@ -60,8 +60,7 @@ def production_verification():
         verification_passed = False
     
     # 3. Summarizer Verification
-    print(f"\n🤖 3. SUMMARIZER VERIFICATION")
-    try:
+    print(f"\n🤖 3. SUMMARIZER VERIFICATION")    try:
         summarizer = Summarizer()
         print(f"   ✅ Summarizer initialized successfully")
         
@@ -71,8 +70,9 @@ def production_verification():
             summary = summarizer.summarize(test_items, days=7)
             
             if summary:
-                print(f"   ✅ Summary generated: {len(summary)} characters")
-                print(f"   📝 Preview: {summary[:80]}...")
+                print(f"   ✅ Summary generated: {len(str(summary))} characters")
+                preview = str(summary)[:80] if summary else "N/A"
+                print(f"   📝 Preview: {preview}...")
             else:
                 print(f"   ❌ Summary generation failed")
                 verification_passed = False

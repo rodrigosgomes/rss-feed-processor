@@ -1,219 +1,186 @@
 # RSS Feed Processor
 
-Este projeto é um processador de feeds RSS que lê artigos, gera resumos usando IA e envia um email diário com o conteúdo formatado em HTML.
+**Sistema Inteligente de Processamento de Feeds RSS**
 
-## Instalação
+Este projeto é um processador automatizado de feeds RSS que:
+- 📰 Lê artigos de múltiplas fontes RSS
+- 🤖 Gera resumos inteligentes usando Google Gemini AI
+- 📧 Envia emails diários formatados em HTML
+- 📱 Cria conteúdo otimizado para LinkedIn
 
-1. Clone o repositório e crie um ambiente virtual:
+## ✨ Funcionalidades
+
+- **Leitura Inteligente**: Processa múltiplos feeds RSS simultaneamente
+- **Resumos com IA**: Utiliza Google Gemini para gerar resumos concisos
+- **Email Automático**: Envia relatórios diários formatados
+- **Conteúdo Social**: Gera posts otimizados para LinkedIn
+- **Filtros de Data**: Processa notícias de períodos específicos
+- **Logs Detalhados**: Sistema completo de logging e debug
+
+## 🚀 Instalação Rápida
+
+1. **Clone e configure o ambiente:**
 ```powershell
+git clone <repo-url>
+cd product_reader
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 ```
 
-2. Configure o ambiente:
-- Copie as configurações de exemplo para os arquivos apropriados:
-  - `.env` para credenciais e chaves de API
-  - `src/config/feeds.txt` para URLs dos feeds RSS
-  - `src/config/recipients.txt` para emails dos destinatários
+2. **Configure as credenciais:**
+   - Crie um arquivo `.env` na raiz do projeto
+   - Configure suas credenciais (veja seção de Configuração)
 
-## Uso
-
-### Execução do Programa
-
-Use o script `run_app.ps1` para executar o programa:
-
+3. **Execute o sistema:**
 ```powershell
-.\run_app.ps1 --days 3  # Processa últimos 3 dias de notícias
-.\run_app.ps1 --dry-run  # Executa sem enviar emails
+.\run_app.ps1
 ```
 
-### Opções da Linha de Comando
+## ⚙️ Configuração
 
-- `--days N`: Processa os últimos N dias de notícias (padrão: 1)
-- `--dry-run`: Executa sem enviar emails, mostrando o conteúdo no terminal
-- `--feeds`: Lista específica de feeds para processar (opcional)
-
-### Configuração
-
-1. Arquivo `.env`:
-```plaintext
+### Arquivo `.env`
+```env
+# Configurações de Email
 SMTP_SERVER=smtp.gmail.com
 SMTP_PORT=587
 SENDER_EMAIL=seu-email@gmail.com
 SENDER_PASSWORD=sua-senha-de-app
-GEMINI_API_KEY=sua-chave-api
+RECIPIENT_EMAIL=destinatario@email.com
+
+# API do Google Gemini
+GEMINI_API_KEY=sua-chave-api-gemini
 ```
 
-2. Arquivo `src/config/feeds.txt`:
-- Um feed RSS por linha
-- Suporta qualquer feed RSS válido
-
-3. Arquivo `src/config/recipients.txt`:
-- Um email por linha
-- Emails que receberão o digest diário
-
-## Estrutura do Projeto
-
+### Feeds RSS (`src/config/feeds.txt`)
 ```
-rss-feed-processor
-├── src
-│   ├── __init__.py
-│   ├── main.py
-│   ├── agents
-│   │   ├── __init__.py
-│   │   ├── rss_reader.py
-│   │   └── summarizer.py
-│   ├── config
-│   │   ├── __init__.py
-│   │   └── settings.py
-│   ├── models
-│   │   ├── __init__.py
-│   │   └── news_item.py
-│   ├── templates
-│   │   ├── __init__.py
-│   │   ├── email_template.html
-│   │   └── prompts.py
-│   └── utils
-│       ├── __init__.py
-│       ├── date_helpers.py
-│       └── email_sender.py
-├── tests
-│   ├── __init__.py
-│   ├── test_rss_reader.py
-│   └── test_summarizer.py
-├── requirements.txt
-├── .env.example
-├── .gitignore
-└── README.md
+https://feeds.folha.uol.com.br/folha/dinheiro/rss091.xml
+https://www.infomoney.com.br/feed/
+https://valor.globo.com/rss/home/
 ```
 
-## Installation
+## 📊 Uso
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/rss-feed-processor.git
-   cd rss-feed-processor
-   ```
+### Execução Básica
+```powershell
+# Processa notícias do último dia
+.\run_app.ps1
 
-2. Create and activate a virtual environment (recommended):
-   ```bash
-   # On Windows
-   python -m venv venv
-   .\venv\Scripts\activate
+# Processa últimos 3 dias
+.\run_app.ps1 --days 3
 
-   # On Linux/MacOS
-   python3 -m venv venv
-   source venv/bin/activate
-   ```
-
-3. Install the required dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. Configure your environment:
-   - Copy `.env.example` to `.env`
-   - Open `.env` and configure the following settings:
-     ```
-     # RSS Feed Settings
-     RSS_FEEDS=["url1", "url2", "url3"]
-     MAX_ITEMS_PER_FEED=10
-
-     # Email Settings
-     SMTP_SERVER=smtp.gmail.com
-     SMTP_PORT=587
-     EMAIL_USERNAME=your-email@gmail.com
-     EMAIL_PASSWORD=your-app-specific-password
-     RECIPIENT_EMAIL=recipient@example.com
-
-     # OpenAI Settings (for summarization)
-     OPENAI_API_KEY=your-api-key
-     ```
-
-## Usage
-
-### Running the Application
-
-1. Start the application:
-   ```bash
-   python src/main.py
-   ```
-
-2. The application will:
-   - Fetch articles from configured RSS feeds
-   - Group articles by date
-   - Generate summaries using AI
-   - Create an HTML email with the content
-   - Send the email to configured recipients
-
-### Command Line Options
-
-```bash
-python src/main.py --days 3  # Process last 3 days of news
-python src/main.py --feeds "feed1,feed2"  # Process specific feeds
-python src/main.py --dry-run  # Run without sending emails
+# Modo debug (sem enviar email)
+.\run_app.ps1 --dry-run
 ```
 
-## Development
+### Opções da Linha de Comando
+- `--days N`: Número de dias para processar (padrão: 1)
+- `--dry-run`: Executa sem enviar emails
+- `--verbose`: Logs mais detalhados
 
-### Running Tests
+## 🏗️ Arquitetura do Sistema
 
-1. Install development dependencies:
-   ```bash
-   pip install -r requirements-dev.txt
-   ```
+```
+product_reader/
+├── 📁 src/                          # Código fonte principal
+│   ├── 🏠 main.py                   # Ponto de entrada da aplicação
+│   ├── 📁 agents/                   # Agentes de processamento
+│   │   ├── rss_reader.py           # Leitor de feeds RSS
+│   │   └── summarizer.py           # Gerador de resumos com IA
+│   ├── 📁 config/                   # Configurações do sistema
+│   │   ├── settings.py             # Configurações centralizadas
+│   │   ├── feeds.txt              # URLs dos feeds RSS
+│   │   └── recipients.txt         # Lista de destinatários
+│   ├── 📁 models/                   # Modelos de dados
+│   │   └── news_item.py           # Estrutura de itens de notícia
+│   ├── 📁 templates/                # Templates e prompts
+│   │   ├── email_template.html     # Template HTML do email
+│   │   └── prompts.py             # Prompts para IA
+│   └── 📁 utils/                    # Utilitários
+│       ├── email_sender.py        # Envio de emails
+│       ├── gemini_client.py       # Cliente da API Gemini
+│       ├── logger.py              # Sistema de logging
+│       └── date_helpers.py        # Manipulação de datas
+├── 📁 tests/                        # Testes automatizados
+├── 📄 requirements.txt              # Dependências do projeto
+├── 📄 .env                          # Variáveis de ambiente
+└── 📄 run_app.ps1                   # Script de execução
 
-2. Run the test suite:
-   ```bash
-   pytest tests/
-   ```
+```
 
-3. Run tests with coverage:
-   ```bash
-   pytest --cov=src tests/
-   ```
+## 🔧 Desenvolvimento
 
-### Code Style
+### Executando Testes
+```powershell
+# Instalar dependências de desenvolvimento
+pip install pytest pytest-cov
 
-- We follow PEP 8 guidelines
-- Use black for code formatting:
-  ```bash
-  black src/ tests/
-  ```
+# Executar todos os testes
+pytest tests/
 
-## Troubleshooting
+# Executar com coverage
+pytest --cov=src tests/
+```
 
-Common issues and solutions:
+### Padrões de Código
+- **Documentação**: Todos os módulos e funções documentados em português
+- **Type Hints**: Tipagem explícita em Python
+- **Logging**: Sistema padronizado de logs com emojis
+- **Error Handling**: Tratamento robusto de exceções
 
-1. Email sending fails:
-   - Verify SMTP settings
-   - For Gmail, ensure "Less secure app access" is enabled
-   - Check if you're using an app-specific password
+## 🐛 Solução de Problemas
 
-2. RSS feed errors:
-   - Verify feed URLs are accessible
-   - Check internet connection
-   - Ensure feed URLs are properly formatted
+### Erro de Envio de Email
+```
+✗ Falha no envio do email: Authentication failed
+```
+**Solução**: 
+- Verifique as credenciais SMTP no arquivo `.env`
+- Para Gmail, use senha de aplicativo específica
+- Verifique se 2FA está habilitado
 
-## Contributing
+### Erro de API Gemini
+```
+✗ Quota exceeded for Gemini API
+```
+**Solução**: 
+- Verifique sua cota na Google Cloud Console
+- O sistema automaticamente tenta modelos gratuitos como fallback
 
-1. Fork the repository
-2. Create a feature branch:
-   ```bash
-   git checkout -b feature-name
-   ```
-3. Make your changes and commit:
-   ```bash
-   git commit -m "Description of changes"
-   ```
-4. Push to your fork and submit a pull request
+### Feeds RSS Inacessíveis
+```
+✗ Failed to fetch feed: Connection timeout
+```
+**Solução**: 
+- Verifique conexão com internet
+- Confirme se URLs dos feeds estão corretas em `feeds.txt`
 
-Please ensure your code:
-- Includes appropriate tests
-- Follows the project's code style
-- Updates documentation as needed
+## 📈 Monitoramento
 
-## License
+O sistema gera logs detalhados que incluem:
+- ✅ Status de processamento de cada feed
+- 📊 Estatísticas de artigos processados
+- ⏱️ Tempo de execução de cada etapa
+- 🚨 Alertas de erro com contexto
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+## 🤝 Contribuindo
+
+1. Fork o repositório
+2. Crie uma branch para sua feature: `git checkout -b feature/nova-funcionalidade`
+3. Commit suas mudanças: `git commit -m "Adiciona nova funcionalidade"`
+4. Push para a branch: `git push origin feature/nova-funcionalidade`
+5. Abra um Pull Request
+
+### Diretrizes de Contribuição
+- Mantenha documentação em português
+- Adicione testes para novas funcionalidades
+- Siga padrões de código existentes
+- Atualize README se necessário
+
+## 📄 Licença
+
+Este projeto está licenciado sob a Licença MIT. Veja o arquivo LICENSE para detalhes.
+
+---
+
+**Desenvolvido com ❤️ para automatizar o consumo inteligente de notícias**
