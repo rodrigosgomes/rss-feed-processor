@@ -17,26 +17,11 @@ https://www.romanpichler.com/feed/
 # UX Design Newsletter - Working
 https://newsletter.uxdesign.cc/feed
 
-# Product Talk Daily - Working
-https://producttalkdaily.substack.com/feed
-
-# Get Product People - Working
-https://getproductpeople.substack.com/feed
-
-# Cutlefish by John Cutler - Working
-https://cutlefish.substack.com/feed
-
 # SVPG Articles - Working
 https://www.svpg.com/articles/feed/
 
-# Product Managers Newsletter - Working
-https://productmanagers.substack.com/feed
-
 # Growth Unhinged - Working
 https://www.growthunhinged.com/feed
-
-# Deb Pereira's Newsletter - Working
-https://dpereira.substack.com/feed
 
 # Lenny's Newsletter - Working
 https://www.lennysnewsletter.com/feed
@@ -58,9 +43,6 @@ https://tpgblog.com/feed/
 
 # Sachin Rekhi - Working
 https://www.sachinrekhi.com/rss
-
-# Hacker Noon - Working
-https://hackernoon.com/feed
 
 # Product Talk Blog - Working
 https://www.producttalk.org/blog/feed/
