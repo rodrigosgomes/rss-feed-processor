@@ -52,19 +52,24 @@ class Summarizer:
         logger.info("=== Starting News Summarization ===")
         logger.info(f"Total articles to process: {len(news_items)}")
         
-        # Get date range in UTC
-        end_date = datetime.now(pytz.UTC).date()
-        start_date = end_date - timedelta(days=days-1)  # -1 because we want to include today
-        logger.info(f"Summarizer: Processing date range {start_date} to {end_date}")
+        # Get date range in UTC - use same logic as main.py for consistency
+        date_cutoff = datetime.now(pytz.UTC) - timedelta(days=days)
+        end_date = datetime.now(pytz.UTC)
+        logger.info(f"Summarizer: Processing date range {date_cutoff.date()} to {end_date.date()}")
         
-        # Filter news items for the specified date range
+        # Debug: Check individual item dates
+        logger.info("=== DEBUG: Checking individual item dates ===")
+        for i, item in enumerate(news_items[:5]):  # Check first 5 items
+            logger.info(f"Item {i}: {item.title[:50]}... Date: {item.published_date} ({item.published_date.date()})")
+        
+        # Filter news items for the specified date range (same logic as main.py)
         filtered_news = [
             item for item in news_items 
-            if start_date <= item.published_date.date() <= end_date
+            if item.published_date >= date_cutoff
         ]
         
         if not filtered_news:
-            logger.warning(f"No news items found between {start_date} and {end_date}")
+            logger.warning(f"No news items found between {date_cutoff.date()} and {end_date.date()}")
             return {}
             
         logger.info(f"Found {len(filtered_news)} news items in the date range")
@@ -102,7 +107,7 @@ class Summarizer:
         if linkedin_content:
             summarized_news['linkedin_content'] = linkedin_content
         
-        logger.info(f"Completed summarization for news between {start_date} and {end_date}")
+        logger.info(f"Completed summarization for news between {date_cutoff.date()} and {end_date.date()}")
         return summarized_news
 
     def _generate_article_summary(self, news_item):
