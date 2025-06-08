@@ -1,0 +1,69 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "RSS Processor - Run Dry-Run",
+			"type": "shell",
+			"command": "python",
+			"args": [
+				"cli.py",
+				"--debug",
+				"run",
+				"--dry-run"
+			],
+			"group": "build",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "RSS Processor - Test Connections",
+			"type": "shell",
+			"command": "python",
+			"args": [
+				"cli.py",
+				"test"
+			],
+			"group": "test",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "RSS Processor - Validate Config",
+			"type": "shell",
+			"command": "python",
+			"args": [
+				"cli.py",
+				"validate"
+			],
+			"group": "test",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "RSS Processor - List Feeds",
+			"type": "shell",
+			"command": "python",
+			"args": [
+				"cli.py",
+				"list-feeds"
+			],
+			"group": "build",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Run Tests",
+			"type": "shell",
+			"command": "python",
+			"args": [
+				"-m",
+				"pytest",
+				"tests/",
+				"-v"
+			],
+			"group": "test",
+			"isBackground": false,
+			"problemMatcher": ["$python"]
+		}
+	]
+}

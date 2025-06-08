@@ -14,33 +14,36 @@ Date: 2024
 import logging
 
 
-def setup_logger() -> logging.Logger:
+def setup_logger(debug: bool = False, name: str = 'RSSFeedProcessor') -> logging.Logger:
     """
     Configura e retorna uma instância de logger formatada para o projeto.
     
-    Configurações:
-    - Nível: INFO
-    - Formato: timestamp | nível | mensagem  
-    - Handler: Console (stdout)
+    Args:
+        debug (bool): Se True, ativa nível DEBUG
+        name (str): Nome do logger
     
     Returns:
         logging.Logger: Instância configurada do logger
     """
     # Cria logger principal
-    logger = logging.getLogger('NewsDigest')
-    logger.setLevel(logging.INFO)
+    logger = logging.getLogger(name)
+    level = logging.DEBUG if debug else logging.INFO
+    logger.setLevel(level)
 
     # Evita duplicação se logger já foi configurado
     if logger.handlers:
+        # Atualiza nível se necessário
+        for handler in logger.handlers:
+            handler.setLevel(level)
         return logger
 
     # Cria handler para console com formatação
     console = logging.StreamHandler()
-    console.setLevel(logging.INFO)
+    console.setLevel(level)
     
     # Cria formatador com timestamp e informações de nível
     formatter = logging.Formatter(
-        '\n%(asctime)s | %(levelname)s | %(message)s',
+        '%(asctime)s | %(levelname)s | %(message)s',
         datefmt='%Y-%m-%d %H:%M:%S'
     )
     

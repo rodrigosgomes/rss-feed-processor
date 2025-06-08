@@ -1,4 +1,890 @@
-<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="4" skipped="0" tests="31" time="15.831" timestamp="2025-05-23T22:16:52.522132" hostname="RODRIGO_CASA"><testcase classname="tests.test_basic" name="test_simple" time="0.004" /><testcase classname="tests.test_email_sender.TestEmailSender" name="test_email_content_formatting" time="0.011" /><testcase classname="tests.test_email_sender.TestEmailSender" name="test_empty_news_handling" time="0.002" /><testcase classname="tests.test_email_sender.TestEmailSender" name="test_send_email_smtp_error" time="0.013" /><testcase classname="tests.test_email_sender.TestEmailSender" name="test_send_email_success" time="0.011" /><testcase classname="tests.test_gemini_client.TestGeminiClient" name="test_calculate_delay" time="0.002" /><testcase classname="tests.test_gemini_client.TestGeminiClient" name="test_generate_content_success" time="0.003" /><testcase classname="tests.test_gemini_client.TestGeminiClient" name="test_generate_content_with_retry" time="5.004" /><testcase classname="tests.test_gemini_client.TestGeminiClient" name="test_initialize_model_success" time="0.002"><failure message="TypeError: unsupported operand type(s) for @: 'NoneType' and '_patch'">self = &lt;tests.test_gemini_client.TestGeminiClient testMethod=test_initialize_model_success&gt;, mock_model = &lt;MagicMock name='GenerativeModel' id='1653542516256'&gt;
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="29" failures="33" skipped="1" tests="97" time="46.852" timestamp="2025-06-07T23:36:05.665415" hostname="RODRIGO_CASA"><testcase classname="tests.test_app.TestProcessingResult" name="test_processing_result_creation" time="0.001" /><testcase classname="tests.test_app.TestProcessingResult" name="test_processing_result_with_errors" time="0.000" /><testcase classname="tests.test_app.TestRSSFeedProcessor" name="test_processor_initialization" time="0.000"><error message="failed on setup with &quot;TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'&quot;">self = &lt;product_reader.tests.test_app.TestRSSFeedProcessor object at 0x0000017E54D79450&gt;
+
+    @pytest.fixture
+    def mock_config(self):
+        """Fixture que retorna uma configuração mock."""
+&gt;       email_config = EmailConfig(
+            smtp_server='smtp.gmail.com',
+            smtp_port=587,
+            email_user='test@gmail.com',
+            email_password='password123',
+            from_email='test@gmail.com',
+            to_email='recipient@gmail.com'
+        )
+E       TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'
+
+tests\test_app.py:62: TypeError</error></testcase><testcase classname="tests.test_app.TestRSSFeedProcessor" name="test_rss_reader_property" time="0.000"><error message="failed on setup with &quot;TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'&quot;">self = &lt;product_reader.tests.test_app.TestRSSFeedProcessor object at 0x0000017E54D791D0&gt;
+
+    @pytest.fixture
+    def mock_config(self):
+        """Fixture que retorna uma configuração mock."""
+&gt;       email_config = EmailConfig(
+            smtp_server='smtp.gmail.com',
+            smtp_port=587,
+            email_user='test@gmail.com',
+            email_password='password123',
+            from_email='test@gmail.com',
+            to_email='recipient@gmail.com'
+        )
+E       TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'
+
+tests\test_app.py:62: TypeError</error></testcase><testcase classname="tests.test_app.TestRSSFeedProcessor" name="test_summarizer_property" time="0.000"><error message="failed on setup with &quot;TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'&quot;">self = &lt;product_reader.tests.test_app.TestRSSFeedProcessor object at 0x0000017E54D715B0&gt;
+
+    @pytest.fixture
+    def mock_config(self):
+        """Fixture que retorna uma configuração mock."""
+&gt;       email_config = EmailConfig(
+            smtp_server='smtp.gmail.com',
+            smtp_port=587,
+            email_user='test@gmail.com',
+            email_password='password123',
+            from_email='test@gmail.com',
+            to_email='recipient@gmail.com'
+        )
+E       TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'
+
+tests\test_app.py:62: TypeError</error></testcase><testcase classname="tests.test_app.TestRSSFeedProcessor" name="test_email_sender_property" time="0.000"><error message="failed on setup with &quot;TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'&quot;">self = &lt;product_reader.tests.test_app.TestRSSFeedProcessor object at 0x0000017E54D71480&gt;
+
+    @pytest.fixture
+    def mock_config(self):
+        """Fixture que retorna uma configuração mock."""
+&gt;       email_config = EmailConfig(
+            smtp_server='smtp.gmail.com',
+            smtp_port=587,
+            email_user='test@gmail.com',
+            email_password='password123',
+            from_email='test@gmail.com',
+            to_email='recipient@gmail.com'
+        )
+E       TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'
+
+tests\test_app.py:62: TypeError</error></testcase><testcase classname="tests.test_app.TestRSSFeedProcessor" name="test_connection_tester_property" time="0.000"><error message="failed on setup with &quot;TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'&quot;">self = &lt;product_reader.tests.test_app.TestRSSFeedProcessor object at 0x0000017E54F0E210&gt;
+
+    @pytest.fixture
+    def mock_config(self):
+        """Fixture que retorna uma configuração mock."""
+&gt;       email_config = EmailConfig(
+            smtp_server='smtp.gmail.com',
+            smtp_port=587,
+            email_user='test@gmail.com',
+            email_password='password123',
+            from_email='test@gmail.com',
+            to_email='recipient@gmail.com'
+        )
+E       TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'
+
+tests\test_app.py:62: TypeError</error></testcase><testcase classname="tests.test_app.TestRSSFeedProcessor" name="test_test_connections_success" time="0.000"><error message="failed on setup with &quot;TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'&quot;">self = &lt;product_reader.tests.test_app.TestRSSFeedProcessor object at 0x0000017E54F20380&gt;
+
+    @pytest.fixture
+    def mock_config(self):
+        """Fixture que retorna uma configuração mock."""
+&gt;       email_config = EmailConfig(
+            smtp_server='smtp.gmail.com',
+            smtp_port=587,
+            email_user='test@gmail.com',
+            email_password='password123',
+            from_email='test@gmail.com',
+            to_email='recipient@gmail.com'
+        )
+E       TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'
+
+tests\test_app.py:62: TypeError</error></testcase><testcase classname="tests.test_app.TestRSSFeedProcessor" name="test_test_connections_failure" time="0.000"><error message="failed on setup with &quot;TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'&quot;">self = &lt;product_reader.tests.test_app.TestRSSFeedProcessor object at 0x0000017E54F20270&gt;
+
+    @pytest.fixture
+    def mock_config(self):
+        """Fixture que retorna uma configuração mock."""
+&gt;       email_config = EmailConfig(
+            smtp_server='smtp.gmail.com',
+            smtp_port=587,
+            email_user='test@gmail.com',
+            email_password='password123',
+            from_email='test@gmail.com',
+            to_email='recipient@gmail.com'
+        )
+E       TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'
+
+tests\test_app.py:62: TypeError</error></testcase><testcase classname="tests.test_app.TestRSSFeedProcessor" name="test_process_feeds_no_feeds" time="0.000"><error message="failed on setup with &quot;TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'&quot;">self = &lt;product_reader.tests.test_app.TestRSSFeedProcessor object at 0x0000017E54E24950&gt;
+
+    @pytest.fixture
+    def mock_config(self):
+        """Fixture que retorna uma configuração mock."""
+&gt;       email_config = EmailConfig(
+            smtp_server='smtp.gmail.com',
+            smtp_port=587,
+            email_user='test@gmail.com',
+            email_password='password123',
+            from_email='test@gmail.com',
+            to_email='recipient@gmail.com'
+        )
+E       TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'
+
+tests\test_app.py:62: TypeError</error></testcase><testcase classname="tests.test_app.TestRSSFeedProcessor" name="test_process_feeds_with_custom_feeds" time="0.000"><error message="failed on setup with &quot;TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'&quot;">self = &lt;product_reader.tests.test_app.TestRSSFeedProcessor object at 0x0000017E54E24850&gt;
+
+    @pytest.fixture
+    def mock_config(self):
+        """Fixture que retorna uma configuração mock."""
+&gt;       email_config = EmailConfig(
+            smtp_server='smtp.gmail.com',
+            smtp_port=587,
+            email_user='test@gmail.com',
+            email_password='password123',
+            from_email='test@gmail.com',
+            to_email='recipient@gmail.com'
+        )
+E       TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'
+
+tests\test_app.py:62: TypeError</error></testcase><testcase classname="tests.test_app.TestRSSFeedProcessor" name="test_process_feeds_dry_run" time="0.000"><error message="failed on setup with &quot;TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'&quot;">self = &lt;product_reader.tests.test_app.TestRSSFeedProcessor object at 0x0000017E54F24320&gt;
+
+    @pytest.fixture
+    def mock_config(self):
+        """Fixture que retorna uma configuração mock."""
+&gt;       email_config = EmailConfig(
+            smtp_server='smtp.gmail.com',
+            smtp_port=587,
+            email_user='test@gmail.com',
+            email_password='password123',
+            from_email='test@gmail.com',
+            to_email='recipient@gmail.com'
+        )
+E       TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'
+
+tests\test_app.py:62: TypeError</error></testcase><testcase classname="tests.test_app.TestRSSFeedProcessor" name="test_process_feeds_with_error" time="0.000"><error message="failed on setup with &quot;TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'&quot;">self = &lt;product_reader.tests.test_app.TestRSSFeedProcessor object at 0x0000017E54F24230&gt;
+
+    @pytest.fixture
+    def mock_config(self):
+        """Fixture que retorna uma configuração mock."""
+&gt;       email_config = EmailConfig(
+            smtp_server='smtp.gmail.com',
+            smtp_port=587,
+            email_user='test@gmail.com',
+            email_password='password123',
+            from_email='test@gmail.com',
+            to_email='recipient@gmail.com'
+        )
+E       TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'
+
+tests\test_app.py:62: TypeError</error></testcase><testcase classname="tests.test_app.TestRSSFeedProcessor" name="test_list_feeds" time="0.000"><error message="failed on setup with &quot;TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'&quot;">self = &lt;product_reader.tests.test_app.TestRSSFeedProcessor object at 0x0000017E54F05FD0&gt;
+
+    @pytest.fixture
+    def mock_config(self):
+        """Fixture que retorna uma configuração mock."""
+&gt;       email_config = EmailConfig(
+            smtp_server='smtp.gmail.com',
+            smtp_port=587,
+            email_user='test@gmail.com',
+            email_password='password123',
+            from_email='test@gmail.com',
+            to_email='recipient@gmail.com'
+        )
+E       TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'
+
+tests\test_app.py:62: TypeError</error></testcase><testcase classname="tests.test_app.TestCreateApp" name="test_create_app_success" time="0.001"><failure message="TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'">self = &lt;product_reader.tests.test_app.TestCreateApp object at 0x0000017E54D79590&gt;
+mock_load_config = &lt;MagicMock name='load_configuration' id='1642102517648'&gt;
+
+    @patch('app.load_configuration')
+    def test_create_app_success(self, mock_load_config):
+        """Testa criação bem-sucedida da aplicação."""
+        # Mock da configuração
+&gt;       email_config = EmailConfig(
+            smtp_server='smtp.gmail.com',
+            smtp_port=587,
+            email_user='test@gmail.com',
+            email_password='password123',
+            from_email='test@gmail.com',
+            to_email='recipient@gmail.com'
+        )
+E       TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'
+
+tests\test_app.py:298: TypeError</failure></testcase><testcase classname="tests.test_app.TestCreateApp" name="test_create_app_configuration_error" time="0.001" /><testcase classname="tests.test_app.TestCreateApp" name="test_create_app_with_custom_config_path" time="0.001"><failure message="TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'">self = &lt;product_reader.tests.test_app.TestCreateApp object at 0x0000017E54D716E0&gt;
+mock_load_config = &lt;MagicMock name='load_configuration' id='1642102520336'&gt;
+
+    @patch('app.load_configuration')
+    def test_create_app_with_custom_config_path(self, mock_load_config):
+        """Testa criação da aplicação com caminho customizado de configuração."""
+        # Mock da configuração
+&gt;       email_config = EmailConfig(
+            smtp_server='smtp.gmail.com',
+            smtp_port=587,
+            email_user='test@gmail.com',
+            email_password='password123',
+            from_email='test@gmail.com',
+            to_email='recipient@gmail.com'
+        )
+E       TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'
+
+tests\test_app.py:335: TypeError</failure></testcase><testcase classname="tests.test_basic" name="test_simple" time="0.000" /><testcase classname="tests.test_cli.TestCreateParser" name="test_create_parser_basic" time="0.002" /><testcase classname="tests.test_cli.TestCreateParser" name="test_create_parser_default_command" time="0.002"><failure message="AssertionError: assert None == 'run'&#10; +  where None = Namespace(debug=False, config='.env', command=None).command">self = &lt;product_reader.tests.test_cli.TestCreateParser object at 0x0000017E54D79810&gt;
+
+    def test_create_parser_default_command(self):
+        """Testa comando padrão (run)."""
+        parser = create_parser()
+        args = parser.parse_args([])
+    
+&gt;       assert args.command == 'run'
+E       AssertionError: assert None == 'run'
+E        +  where None = Namespace(debug=False, config='.env', command=None).command
+
+tests\test_cli.py:39: AssertionError</failure></testcase><testcase classname="tests.test_cli.TestCreateParser" name="test_create_parser_run_command_with_args" time="0.002" /><testcase classname="tests.test_cli.TestCreateParser" name="test_create_parser_test_command" time="0.002" /><testcase classname="tests.test_cli.TestCreateParser" name="test_create_parser_validate_command" time="0.001" /><testcase classname="tests.test_cli.TestCreateParser" name="test_create_parser_list_feeds_command" time="0.001" /><testcase classname="tests.test_cli.TestCreateParser" name="test_create_parser_global_debug_flag" time="0.001" /><testcase classname="tests.test_cli.TestCreateParser" name="test_create_parser_global_config_path" time="0.002"><failure message="SystemExit: 2">self = ArgumentParser(prog='rss-processor', usage=None, description='#x1F680 RSS Feed Processor - Processa feeds RSS e envia resumos por email', formatter_class=&lt;class 'argparse.RawDescriptionHelpFormatter'&gt;, conflict_handler='error', add_help=True)
+args = ['--config-path', '/custom/path', 'run']
+namespace = Namespace(debug=False, config='.env', command=None), intermixed = False
+
+    def _parse_known_args2(self, args, namespace, intermixed):
+        if args is None:
+            # args default to the system args
+            args = _sys.argv[1:]
+        else:
+            # make sure that args are mutable
+            args = list(args)
+    
+        # default Namespace built from parser defaults
+        if namespace is None:
+            namespace = Namespace()
+    
+        # add any action defaults that aren't present
+        for action in self._actions:
+            if action.dest is not SUPPRESS:
+                if not hasattr(namespace, action.dest):
+                    if action.default is not SUPPRESS:
+                        setattr(namespace, action.dest, action.default)
+    
+        # add any parser defaults that aren't present
+        for dest in self._defaults:
+            if not hasattr(namespace, dest):
+                setattr(namespace, dest, self._defaults[dest])
+    
+        # parse the arguments and exit if there are any errors
+        if self.exit_on_error:
+            try:
+&gt;               namespace, args = self._parse_known_args(args, namespace, intermixed)
+
+C:\Users\rodri\AppData\Local\Programs\Python\Python313\Lib\argparse.py:1928: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Users\rodri\AppData\Local\Programs\Python\Python313\Lib\argparse.py:2183: in _parse_known_args
+    stop_index = consume_positionals(start_index)
+C:\Users\rodri\AppData\Local\Programs\Python\Python313\Lib\argparse.py:2135: in consume_positionals
+    take_action(action, args)
+C:\Users\rodri\AppData\Local\Programs\Python\Python313\Lib\argparse.py:1989: in take_action
+    argument_values = self._get_values(action, argument_strings)
+C:\Users\rodri\AppData\Local\Programs\Python\Python313\Lib\argparse.py:2518: in _get_values
+    self._check_value(action, value[0])
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = ArgumentParser(prog='rss-processor', usage=None, description='#x1F680 RSS Feed Processor - Processa feeds RSS e envia resumos por email', formatter_class=&lt;class 'argparse.RawDescriptionHelpFormatter'&gt;, conflict_handler='error', add_help=True)
+action = _SubParsersAction(option_strings=[], dest='command', nargs='A...', const=None, default=None, type=None, choices={'run'...flict_handler='error', add_help=True)}, required=False, help='Comando a executar', metavar='COMANDO', deprecated=False)
+value = '/custom/path'
+
+    def _check_value(self, action, value):
+        # converted value must be one of the choices (if specified)
+        choices = action.choices
+        if choices is not None:
+            if isinstance(choices, str):
+                choices = iter(choices)
+            if value not in choices:
+                args = {'value': str(value),
+                        'choices': ', '.join(map(str, action.choices))}
+                msg = _('invalid choice: %(value)r (choose from %(choices)s)')
+&gt;               raise ArgumentError(action, msg % args)
+E               argparse.ArgumentError: argument COMANDO: invalid choice: '/custom/path' (choose from run, test, validate, list-feeds)
+
+C:\Users\rodri\AppData\Local\Programs\Python\Python313\Lib\argparse.py:2568: ArgumentError
+
+During handling of the above exception, another exception occurred:
+
+self = &lt;product_reader.tests.test_cli.TestCreateParser object at 0x0000017E54E24D50&gt;
+
+    def test_create_parser_global_config_path(self):
+        """Testa configuração de caminho global."""
+        parser = create_parser()
+&gt;       args = parser.parse_args(['--config-path', '/custom/path', 'run'])
+
+tests\test_cli.py:86: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Users\rodri\AppData\Local\Programs\Python\Python313\Lib\argparse.py:1889: in parse_args
+    args, argv = self.parse_known_args(args, namespace)
+C:\Users\rodri\AppData\Local\Programs\Python\Python313\Lib\argparse.py:1899: in parse_known_args
+    return self._parse_known_args2(args, namespace, intermixed=False)
+C:\Users\rodri\AppData\Local\Programs\Python\Python313\Lib\argparse.py:1930: in _parse_known_args2
+    self.error(str(err))
+C:\Users\rodri\AppData\Local\Programs\Python\Python313\Lib\argparse.py:2645: in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = ArgumentParser(prog='rss-processor', usage=None, description='#x1F680 RSS Feed Processor - Processa feeds RSS e envia resumos por email', formatter_class=&lt;class 'argparse.RawDescriptionHelpFormatter'&gt;, conflict_handler='error', add_help=True)
+status = 2
+message = "rss-processor: error: argument COMANDO: invalid choice: '/custom/path' (choose from run, test, validate, list-feeds)\n"
+
+    def exit(self, status=0, message=None):
+        if message:
+            self._print_message(message, _sys.stderr)
+&gt;       _sys.exit(status)
+E       SystemExit: 2
+
+C:\Users\rodri\AppData\Local\Programs\Python\Python313\Lib\argparse.py:2632: SystemExit</failure></testcase><testcase classname="tests.test_cli.TestCmdRun" name="test_cmd_run_success" time="0.001"><failure message="TypeError: cmd_run() missing 1 required positional argument: 'config'">self = &lt;product_reader.tests.test_cli.TestCmdRun object at 0x0000017E54D79950&gt;
+mock_create_app = &lt;MagicMock name='create_app' id='1642102520336'&gt;
+
+    @patch('cli.create_app')
+    def test_cmd_run_success(self, mock_create_app):
+        """Testa execução bem-sucedida do comando run."""
+        # Mock da aplicação
+        mock_app = Mock()
+        mock_result = Mock()
+        mock_result.success = True
+        mock_result.articles_found = 5
+        mock_result.articles_processed = 5
+        mock_result.summaries_generated = 5
+        mock_result.emails_sent = 1
+        mock_result.errors = []
+    
+        mock_app.process_feeds.return_value = mock_result
+        mock_create_app.return_value = mock_app
+    
+        # Mock dos argumentos
+        args = Mock()
+        args.days = 1
+        args.dry_run = False
+        args.feeds = None
+        args.debug = False
+        args.config_path = None
+    
+        with patch('sys.stdout', new_callable=StringIO) as mock_stdout:
+&gt;           result = cmd_run(args)
+E           TypeError: cmd_run() missing 1 required positional argument: 'config'
+
+tests\test_cli.py:120: TypeError</failure></testcase><testcase classname="tests.test_cli.TestCmdRun" name="test_cmd_run_with_custom_feeds" time="0.001"><failure message="TypeError: cmd_run() missing 1 required positional argument: 'config'">self = &lt;product_reader.tests.test_cli.TestCmdRun object at 0x0000017E54D79A90&gt;
+mock_create_app = &lt;MagicMock name='create_app' id='1642102521344'&gt;
+
+    @patch('cli.create_app')
+    def test_cmd_run_with_custom_feeds(self, mock_create_app):
+        """Testa comando run com feeds customizados."""
+        mock_app = Mock()
+        mock_result = Mock()
+        mock_result.success = True
+        mock_result.articles_found = 3
+        mock_result.articles_processed = 3
+        mock_result.summaries_generated = 3
+        mock_result.emails_sent = 1
+        mock_result.errors = []
+    
+        mock_app.process_feeds.return_value = mock_result
+        mock_create_app.return_value = mock_app
+    
+        args = Mock()
+        args.days = 2
+        args.dry_run = True
+        args.feeds = 'http://feed1.com,http://feed2.com'
+        args.debug = False
+        args.config_path = None
+    
+&gt;       result = cmd_run(args)
+E       TypeError: cmd_run() missing 1 required positional argument: 'config'
+
+tests\test_cli.py:153: TypeError</failure></testcase><testcase classname="tests.test_cli.TestCmdRun" name="test_cmd_run_failure" time="0.001"><failure message="TypeError: cmd_run() missing 1 required positional argument: 'config'">self = &lt;product_reader.tests.test_cli.TestCmdRun object at 0x0000017E54D71F30&gt;
+mock_create_app = &lt;MagicMock name='create_app' id='1642104636480'&gt;
+
+    @patch('cli.create_app')
+    def test_cmd_run_failure(self, mock_create_app):
+        """Testa falha no comando run."""
+        mock_app = Mock()
+        mock_result = Mock()
+        mock_result.success = False
+        mock_result.errors = ['Erro 1', 'Erro 2']
+    
+        mock_app.process_feeds.return_value = mock_result
+        mock_create_app.return_value = mock_app
+    
+        args = Mock()
+        args.days = 1
+        args.dry_run = False
+        args.feeds = None
+        args.debug = False
+        args.config_path = None
+    
+        with patch('sys.stdout', new_callable=StringIO) as mock_stdout:
+&gt;           result = cmd_run(args)
+E           TypeError: cmd_run() missing 1 required positional argument: 'config'
+
+tests\test_cli.py:181: TypeError</failure></testcase><testcase classname="tests.test_cli.TestCmdRun" name="test_cmd_run_exception" time="0.001"><failure message="TypeError: cmd_run() missing 1 required positional argument: 'config'">self = &lt;product_reader.tests.test_cli.TestCmdRun object at 0x0000017E54D72060&gt;
+mock_create_app = &lt;MagicMock name='create_app' id='1642104638160'&gt;
+
+    @patch('cli.create_app')
+    def test_cmd_run_exception(self, mock_create_app):
+        """Testa exceção durante comando run."""
+        mock_create_app.side_effect = Exception("Erro na criação da app")
+    
+        args = Mock()
+        args.debug = False
+        args.config_path = None
+    
+        with patch('sys.stdout', new_callable=StringIO) as mock_stdout:
+&gt;           result = cmd_run(args)
+E           TypeError: cmd_run() missing 1 required positional argument: 'config'
+
+tests\test_cli.py:199: TypeError</failure></testcase><testcase classname="tests.test_cli.TestCmdTest" name="test_cmd_test_success" time="0.001"><failure message="TypeError: cmd_test() missing 1 required positional argument: 'config'">self = &lt;product_reader.tests.test_cli.TestCmdTest object at 0x0000017E54D79BD0&gt;
+mock_create_app = &lt;MagicMock name='create_app' id='1642104638832'&gt;
+
+    @patch('cli.create_app')
+    def test_cmd_test_success(self, mock_create_app):
+        """Testa comando test bem-sucedido."""
+        mock_app = Mock()
+        mock_app.test_connections.return_value = True
+        mock_create_app.return_value = mock_app
+    
+        args = Mock()
+        args.debug = False
+        args.config_path = None
+    
+        with patch('sys.stdout', new_callable=StringIO) as mock_stdout:
+&gt;           result = cmd_test(args)
+E           TypeError: cmd_test() missing 1 required positional argument: 'config'
+
+tests\test_cli.py:221: TypeError</failure></testcase><testcase classname="tests.test_cli.TestCmdTest" name="test_cmd_test_failure" time="0.001"><failure message="TypeError: cmd_test() missing 1 required positional argument: 'config'">self = &lt;product_reader.tests.test_cli.TestCmdTest object at 0x0000017E54D79D10&gt;
+mock_create_app = &lt;MagicMock name='create_app' id='1642104640176'&gt;
+
+    @patch('cli.create_app')
+    def test_cmd_test_failure(self, mock_create_app):
+        """Testa falha no comando test."""
+        mock_app = Mock()
+        mock_app.test_connections.return_value = False
+        mock_create_app.return_value = mock_app
+    
+        args = Mock()
+        args.debug = False
+        args.config_path = None
+    
+        with patch('sys.stdout', new_callable=StringIO) as mock_stdout:
+&gt;           result = cmd_test(args)
+E           TypeError: cmd_test() missing 1 required positional argument: 'config'
+
+tests\test_cli.py:241: TypeError</failure></testcase><testcase classname="tests.test_cli.TestCmdValidate" name="test_cmd_validate_success" time="0.001"><failure message="TypeError: cmd_validate() missing 1 required positional argument: 'config'">self = &lt;product_reader.tests.test_cli.TestCmdValidate object at 0x0000017E54D79E50&gt;
+mock_create_app = &lt;MagicMock name='create_app' id='1642104641520'&gt;
+
+    @patch('cli.create_app')
+    def test_cmd_validate_success(self, mock_create_app):
+        """Testa comando validate bem-sucedido."""
+        mock_app = Mock()
+        mock_create_app.return_value = mock_app
+    
+        args = Mock()
+        args.debug = False
+        args.config_path = None
+    
+        with patch('sys.stdout', new_callable=StringIO) as mock_stdout:
+&gt;           result = cmd_validate(args)
+E           TypeError: cmd_validate() missing 1 required positional argument: 'config'
+
+tests\test_cli.py:262: TypeError</failure></testcase><testcase classname="tests.test_cli.TestCmdValidate" name="test_cmd_validate_failure" time="0.001"><failure message="TypeError: cmd_validate() missing 1 required positional argument: 'config'">self = &lt;product_reader.tests.test_cli.TestCmdValidate object at 0x0000017E54D79F90&gt;
+mock_create_app = &lt;MagicMock name='create_app' id='1642104642528'&gt;
+
+    @patch('cli.create_app')
+    def test_cmd_validate_failure(self, mock_create_app):
+        """Testa falha na validação."""
+        from config.config import ConfigurationError
+        mock_create_app.side_effect = ConfigurationError("Configuração inválida")
+    
+        args = Mock()
+        args.debug = False
+        args.config_path = None
+    
+        with patch('sys.stdout', new_callable=StringIO) as mock_stdout:
+&gt;           result = cmd_validate(args)
+E           TypeError: cmd_validate() missing 1 required positional argument: 'config'
+
+tests\test_cli.py:279: TypeError</failure></testcase><testcase classname="tests.test_cli.TestCmdListFeeds" name="test_cmd_list_feeds_with_feeds" time="0.001"><failure message="TypeError: cmd_list_feeds() missing 1 required positional argument: 'config'">self = &lt;product_reader.tests.test_cli.TestCmdListFeeds object at 0x0000017E54D7A210&gt;
+mock_create_app = &lt;MagicMock name='create_app' id='1642104643200'&gt;
+
+    @patch('cli.create_app')
+    def test_cmd_list_feeds_with_feeds(self, mock_create_app):
+        """Testa listagem de feeds com feeds configurados."""
+        mock_app = Mock()
+        mock_app.list_feeds.return_value = [
+            'http://feed1.com/rss',
+            'http://feed2.com/rss',
+            'http://feed3.com/rss'
+        ]
+        mock_create_app.return_value = mock_app
+    
+        args = Mock()
+        args.debug = False
+        args.config_path = None
+    
+        with patch('sys.stdout', new_callable=StringIO) as mock_stdout:
+&gt;           result = cmd_list_feeds(args)
+E           TypeError: cmd_list_feeds() missing 1 required positional argument: 'config'
+
+tests\test_cli.py:306: TypeError</failure></testcase><testcase classname="tests.test_cli.TestCmdListFeeds" name="test_cmd_list_feeds_empty" time="0.001"><failure message="TypeError: cmd_list_feeds() missing 1 required positional argument: 'config'">self = &lt;product_reader.tests.test_cli.TestCmdListFeeds object at 0x0000017E54D7A350&gt;
+mock_create_app = &lt;MagicMock name='create_app' id='1642104644544'&gt;
+
+    @patch('cli.create_app')
+    def test_cmd_list_feeds_empty(self, mock_create_app):
+        """Testa listagem quando não há feeds configurados."""
+        mock_app = Mock()
+        mock_app.list_feeds.return_value = []
+        mock_create_app.return_value = mock_app
+    
+        args = Mock()
+        args.debug = False
+        args.config_path = None
+    
+        with patch('sys.stdout', new_callable=StringIO) as mock_stdout:
+&gt;           result = cmd_list_feeds(args)
+E           TypeError: cmd_list_feeds() missing 1 required positional argument: 'config'
+
+tests\test_cli.py:327: TypeError</failure></testcase><testcase classname="tests.test_cli.TestMainFunction" name="test_main_run_command" time="0.003"><failure message="assert 1 == 0">self = &lt;product_reader.tests.test_cli.TestMainFunction object at 0x0000017E54D7A490&gt;
+mock_cmd_run = &lt;MagicMock name='cmd_run' id='1642104645888'&gt;
+mock_create_parser = &lt;MagicMock name='create_parser' id='1642104646224'&gt;
+
+    @patch('cli.create_parser')
+    @patch('cli.cmd_run')
+    def test_main_run_command(self, mock_cmd_run, mock_create_parser):
+        """Testa função main com comando run."""
+        # Mock do parser
+        mock_parser = Mock()
+        mock_args = Mock()
+        mock_args.command = 'run'
+        mock_parser.parse_args.return_value = mock_args
+        mock_create_parser.return_value = mock_parser
+    
+        mock_cmd_run.return_value = 0
+    
+        with patch('sys.argv', ['cli.py', 'run']):
+            result = main()
+    
+&gt;           assert result == 0
+E           assert 1 == 0
+
+tests\test_cli.py:353: AssertionError</failure></testcase><testcase classname="tests.test_cli.TestMainFunction" name="test_main_test_command" time="0.002"><failure message="assert 1 == 0">self = &lt;product_reader.tests.test_cli.TestMainFunction object at 0x0000017E54D7A5D0&gt;
+mock_cmd_test = &lt;MagicMock name='cmd_test' id='1642102521344'&gt;
+mock_create_parser = &lt;MagicMock name='create_parser' id='1642102520000'&gt;
+
+    @patch('cli.create_parser')
+    @patch('cli.cmd_test')
+    def test_main_test_command(self, mock_cmd_test, mock_create_parser):
+        """Testa função main com comando test."""
+        mock_parser = Mock()
+        mock_args = Mock()
+        mock_args.command = 'test'
+        mock_parser.parse_args.return_value = mock_args
+        mock_create_parser.return_value = mock_parser
+    
+        mock_cmd_test.return_value = 0
+    
+        with patch('sys.argv', ['cli.py', 'test']):
+            result = main()
+    
+&gt;           assert result == 0
+E           assert 1 == 0
+
+tests\test_cli.py:371: AssertionError</failure></testcase><testcase classname="tests.test_cli" name="test_process_news_with_email" time="0.000"><skipped type="pytest.skip" message="async def function and no async plugin installed (see warnings)">c:\Projects\agents\product_reader\.venv\Lib\site-packages\_pytest\python.py:183: async def function and no async plugin installed (see warnings)</skipped></testcase><testcase classname="tests.test_config.TestEmailConfig" name="test_email_config_creation" time="0.001" /><testcase classname="tests.test_config.TestEmailConfig" name="test_email_config_to_dict" time="0.001" /><testcase classname="tests.test_config.TestConfiguration" name="test_configuration_creation" time="0.000" /><testcase classname="tests.test_config.TestConfiguration" name="test_configuration_default_values" time="0.000" /><testcase classname="tests.test_config.TestConfiguration" name="test_email_settings_property" time="0.001" /><testcase classname="tests.test_config.TestValidateEmailSettings" name="test_validate_valid_email_settings" time="0.000" /><testcase classname="tests.test_config.TestValidateEmailSettings" name="test_validate_invalid_email_settings" time="0.000" /><testcase classname="tests.test_config.TestLoadConfiguration" name="test_load_configuration_from_env" time="0.002" /><testcase classname="tests.test_config.TestLoadConfiguration" name="test_load_configuration_missing_gemini_key" time="0.002" /><testcase classname="tests.test_config.TestLoadConfiguration" name="test_load_configuration_debug_mode" time="0.002" /><testcase classname="tests.test_config.TestConfigurationError" name="test_configuration_error_creation" time="0.001" /><testcase classname="tests.test_connection_tester.TestConnectionTester" name="test_connection_tester_initialization" time="0.000"><error message="failed on setup with &quot;TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'&quot;">self = &lt;product_reader.tests.test_connection_tester.TestConnectionTester object at 0x0000017E54D7B390&gt;
+
+    @pytest.fixture
+    def mock_config(self):
+        """Fixture que retorna uma configuração mock."""
+&gt;       email_config = EmailConfig(
+            smtp_server='smtp.gmail.com',
+            smtp_port=587,
+            email_user='test@gmail.com',
+            email_password='password123',
+            from_email='test@gmail.com',
+            to_email='recipient@gmail.com',
+            use_tls=True
+        )
+E       TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'
+
+tests\test_connection_tester.py:24: TypeError</error></testcase><testcase classname="tests.test_connection_tester.TestConnectionTester" name="test_test_gemini_api_success" time="0.000"><error message="failed on setup with &quot;TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'&quot;">self = &lt;product_reader.tests.test_connection_tester.TestConnectionTester object at 0x0000017E54D7B4D0&gt;
+
+    @pytest.fixture
+    def mock_config(self):
+        """Fixture que retorna uma configuração mock."""
+&gt;       email_config = EmailConfig(
+            smtp_server='smtp.gmail.com',
+            smtp_port=587,
+            email_user='test@gmail.com',
+            email_password='password123',
+            from_email='test@gmail.com',
+            to_email='recipient@gmail.com',
+            use_tls=True
+        )
+E       TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'
+
+tests\test_connection_tester.py:24: TypeError</error></testcase><testcase classname="tests.test_connection_tester.TestConnectionTester" name="test_test_gemini_api_failure" time="0.000"><error message="failed on setup with &quot;TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'&quot;">self = &lt;product_reader.tests.test_connection_tester.TestConnectionTester object at 0x0000017E54D72520&gt;
+
+    @pytest.fixture
+    def mock_config(self):
+        """Fixture que retorna uma configuração mock."""
+&gt;       email_config = EmailConfig(
+            smtp_server='smtp.gmail.com',
+            smtp_port=587,
+            email_user='test@gmail.com',
+            email_password='password123',
+            from_email='test@gmail.com',
+            to_email='recipient@gmail.com',
+            use_tls=True
+        )
+E       TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'
+
+tests\test_connection_tester.py:24: TypeError</error></testcase><testcase classname="tests.test_connection_tester.TestConnectionTester" name="test_test_gemini_api_empty_response" time="0.001"><error message="failed on setup with &quot;TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'&quot;">self = &lt;product_reader.tests.test_connection_tester.TestConnectionTester object at 0x0000017E54D72650&gt;
+
+    @pytest.fixture
+    def mock_config(self):
+        """Fixture que retorna uma configuração mock."""
+&gt;       email_config = EmailConfig(
+            smtp_server='smtp.gmail.com',
+            smtp_port=587,
+            email_user='test@gmail.com',
+            email_password='password123',
+            from_email='test@gmail.com',
+            to_email='recipient@gmail.com',
+            use_tls=True
+        )
+E       TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'
+
+tests\test_connection_tester.py:24: TypeError</error></testcase><testcase classname="tests.test_connection_tester.TestConnectionTester" name="test_test_smtp_connection_success" time="0.001"><error message="failed on setup with &quot;TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'&quot;">self = &lt;product_reader.tests.test_connection_tester.TestConnectionTester object at 0x0000017E550157F0&gt;
+
+    @pytest.fixture
+    def mock_config(self):
+        """Fixture que retorna uma configuração mock."""
+&gt;       email_config = EmailConfig(
+            smtp_server='smtp.gmail.com',
+            smtp_port=587,
+            email_user='test@gmail.com',
+            email_password='password123',
+            from_email='test@gmail.com',
+            to_email='recipient@gmail.com',
+            use_tls=True
+        )
+E       TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'
+
+tests\test_connection_tester.py:24: TypeError</error></testcase><testcase classname="tests.test_connection_tester.TestConnectionTester" name="test_test_smtp_connection_no_tls" time="0.001"><error message="failed on setup with &quot;TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'&quot;">self = &lt;product_reader.tests.test_connection_tester.TestConnectionTester object at 0x0000017E54F209E0&gt;
+
+    @pytest.fixture
+    def mock_config(self):
+        """Fixture que retorna uma configuração mock."""
+&gt;       email_config = EmailConfig(
+            smtp_server='smtp.gmail.com',
+            smtp_port=587,
+            email_user='test@gmail.com',
+            email_password='password123',
+            from_email='test@gmail.com',
+            to_email='recipient@gmail.com',
+            use_tls=True
+        )
+E       TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'
+
+tests\test_connection_tester.py:24: TypeError</error></testcase><testcase classname="tests.test_connection_tester.TestConnectionTester" name="test_test_smtp_connection_failure" time="0.001"><error message="failed on setup with &quot;TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'&quot;">self = &lt;product_reader.tests.test_connection_tester.TestConnectionTester object at 0x0000017E54F20D10&gt;
+
+    @pytest.fixture
+    def mock_config(self):
+        """Fixture que retorna uma configuração mock."""
+&gt;       email_config = EmailConfig(
+            smtp_server='smtp.gmail.com',
+            smtp_port=587,
+            email_user='test@gmail.com',
+            email_password='password123',
+            from_email='test@gmail.com',
+            to_email='recipient@gmail.com',
+            use_tls=True
+        )
+E       TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'
+
+tests\test_connection_tester.py:24: TypeError</error></testcase><testcase classname="tests.test_connection_tester.TestConnectionTester" name="test_test_smtp_connection_auth_failure" time="0.001"><error message="failed on setup with &quot;TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'&quot;">self = &lt;product_reader.tests.test_connection_tester.TestConnectionTester object at 0x0000017E54E25250&gt;
+
+    @pytest.fixture
+    def mock_config(self):
+        """Fixture que retorna uma configuração mock."""
+&gt;       email_config = EmailConfig(
+            smtp_server='smtp.gmail.com',
+            smtp_port=587,
+            email_user='test@gmail.com',
+            email_password='password123',
+            from_email='test@gmail.com',
+            to_email='recipient@gmail.com',
+            use_tls=True
+        )
+E       TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'
+
+tests\test_connection_tester.py:24: TypeError</error></testcase><testcase classname="tests.test_connection_tester.TestConnectionTester" name="test_test_smtp_connection_socket_error" time="0.001"><error message="failed on setup with &quot;TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'&quot;">self = &lt;product_reader.tests.test_connection_tester.TestConnectionTester object at 0x0000017E54E24C50&gt;
+
+    @pytest.fixture
+    def mock_config(self):
+        """Fixture que retorna uma configuração mock."""
+&gt;       email_config = EmailConfig(
+            smtp_server='smtp.gmail.com',
+            smtp_port=587,
+            email_user='test@gmail.com',
+            email_password='password123',
+            from_email='test@gmail.com',
+            to_email='recipient@gmail.com',
+            use_tls=True
+        )
+E       TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'
+
+tests\test_connection_tester.py:24: TypeError</error></testcase><testcase classname="tests.test_connection_tester.TestConnectionTester" name="test_test_all_connections_success" time="0.000"><error message="failed on setup with &quot;TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'&quot;">self = &lt;product_reader.tests.test_connection_tester.TestConnectionTester object at 0x0000017E54F24500&gt;
+
+    @pytest.fixture
+    def mock_config(self):
+        """Fixture que retorna uma configuração mock."""
+&gt;       email_config = EmailConfig(
+            smtp_server='smtp.gmail.com',
+            smtp_port=587,
+            email_user='test@gmail.com',
+            email_password='password123',
+            from_email='test@gmail.com',
+            to_email='recipient@gmail.com',
+            use_tls=True
+        )
+E       TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'
+
+tests\test_connection_tester.py:24: TypeError</error></testcase><testcase classname="tests.test_connection_tester.TestConnectionTester" name="test_test_all_connections_gemini_failure" time="0.001"><error message="failed on setup with &quot;TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'&quot;">self = &lt;product_reader.tests.test_connection_tester.TestConnectionTester object at 0x0000017E54F24B90&gt;
+
+    @pytest.fixture
+    def mock_config(self):
+        """Fixture que retorna uma configuração mock."""
+&gt;       email_config = EmailConfig(
+            smtp_server='smtp.gmail.com',
+            smtp_port=587,
+            email_user='test@gmail.com',
+            email_password='password123',
+            from_email='test@gmail.com',
+            to_email='recipient@gmail.com',
+            use_tls=True
+        )
+E       TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'
+
+tests\test_connection_tester.py:24: TypeError</error></testcase><testcase classname="tests.test_connection_tester.TestConnectionTester" name="test_test_all_connections_smtp_failure" time="0.001"><error message="failed on setup with &quot;TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'&quot;">self = &lt;product_reader.tests.test_connection_tester.TestConnectionTester object at 0x0000017E54F511D0&gt;
+
+    @pytest.fixture
+    def mock_config(self):
+        """Fixture que retorna uma configuração mock."""
+&gt;       email_config = EmailConfig(
+            smtp_server='smtp.gmail.com',
+            smtp_port=587,
+            email_user='test@gmail.com',
+            email_password='password123',
+            from_email='test@gmail.com',
+            to_email='recipient@gmail.com',
+            use_tls=True
+        )
+E       TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'
+
+tests\test_connection_tester.py:24: TypeError</error></testcase><testcase classname="tests.test_connection_tester.TestConnectionTester" name="test_test_all_connections_both_failure" time="0.000"><error message="failed on setup with &quot;TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'&quot;">self = &lt;product_reader.tests.test_connection_tester.TestConnectionTester object at 0x0000017E54F51470&gt;
+
+    @pytest.fixture
+    def mock_config(self):
+        """Fixture que retorna uma configuração mock."""
+&gt;       email_config = EmailConfig(
+            smtp_server='smtp.gmail.com',
+            smtp_port=587,
+            email_user='test@gmail.com',
+            email_password='password123',
+            from_email='test@gmail.com',
+            to_email='recipient@gmail.com',
+            use_tls=True
+        )
+E       TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'
+
+tests\test_connection_tester.py:24: TypeError</error></testcase><testcase classname="tests.test_connection_tester.TestConnectionTester" name="test_test_all_connections_with_exception" time="0.000"><error message="failed on setup with &quot;TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'&quot;">self = &lt;product_reader.tests.test_connection_tester.TestConnectionTester object at 0x0000017E524A6340&gt;
+
+    @pytest.fixture
+    def mock_config(self):
+        """Fixture que retorna uma configuração mock."""
+&gt;       email_config = EmailConfig(
+            smtp_server='smtp.gmail.com',
+            smtp_port=587,
+            email_user='test@gmail.com',
+            email_password='password123',
+            from_email='test@gmail.com',
+            to_email='recipient@gmail.com',
+            use_tls=True
+        )
+E       TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'
+
+tests\test_connection_tester.py:24: TypeError</error></testcase><testcase classname="tests.test_connection_tester.TestConnectionTester" name="test_connection_tester_with_debug_config" time="0.000"><error message="failed on setup with &quot;TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'&quot;">self = &lt;product_reader.tests.test_connection_tester.TestConnectionTester object at 0x0000017E54E0FAD0&gt;
+
+    @pytest.fixture
+    def mock_config(self):
+        """Fixture que retorna uma configuração mock."""
+&gt;       email_config = EmailConfig(
+            smtp_server='smtp.gmail.com',
+            smtp_port=587,
+            email_user='test@gmail.com',
+            email_password='password123',
+            from_email='test@gmail.com',
+            to_email='recipient@gmail.com',
+            use_tls=True
+        )
+E       TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'
+
+tests\test_connection_tester.py:24: TypeError</error></testcase><testcase classname="tests.test_connection_tester.TestConnectionTester" name="test_test_smtp_connection_port_465" time="0.000"><error message="failed on setup with &quot;TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'&quot;">self = &lt;product_reader.tests.test_connection_tester.TestConnectionTester object at 0x0000017E54E0EF90&gt;
+
+    @pytest.fixture
+    def mock_config(self):
+        """Fixture que retorna uma configuração mock."""
+&gt;       email_config = EmailConfig(
+            smtp_server='smtp.gmail.com',
+            smtp_port=587,
+            email_user='test@gmail.com',
+            email_password='password123',
+            from_email='test@gmail.com',
+            to_email='recipient@gmail.com',
+            use_tls=True
+        )
+E       TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'
+
+tests\test_connection_tester.py:24: TypeError</error></testcase><testcase classname="tests.test_connection_tester.TestConnectionTester" name="test_test_smtp_connection_custom_server" time="0.000"><error message="failed on setup with &quot;TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'&quot;">self = &lt;product_reader.tests.test_connection_tester.TestConnectionTester object at 0x0000017E5507CE10&gt;
+
+    @pytest.fixture
+    def mock_config(self):
+        """Fixture que retorna uma configuração mock."""
+&gt;       email_config = EmailConfig(
+            smtp_server='smtp.gmail.com',
+            smtp_port=587,
+            email_user='test@gmail.com',
+            email_password='password123',
+            from_email='test@gmail.com',
+            to_email='recipient@gmail.com',
+            use_tls=True
+        )
+E       TypeError: EmailConfig.__init__() got an unexpected keyword argument 'email_user'
+
+tests\test_connection_tester.py:24: TypeError</error></testcase><testcase classname="tests.test_email_sender.TestEmailSender" name="test_email_content_formatting" time="0.017"><failure message="AssertionError: 'Test summary' not found in '&lt;!DOCTYPE html&gt;\n&lt;html lang=&quot;en&quot;&gt;\n&lt;head&gt;\n    &lt;meta charset=&quot;UTF-8&quot;&gt;\n    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;\n    &lt;title&gt;Daily News Summary&lt;/title&gt;\n    &lt;style&gt;\n        body {\n            font-family: Arial, sans-serif;\n            line-height: 1.6;\n            color: #333;\n            max-width: 800px;\n            margin: 0 auto;\n            padding: 20px;\n            background-color: #f4f4f4;\n        }\n        .container {\n            width: 80%;\n            margin: auto;\n            overflow: hidden;\n            background: #fff;\n            padding: 20px;\n            border-radius: 8px;\n            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n        }\n        h1 {\n            color: #333;\n        }\n        .date-section {\n            margin-bottom: 30px;\n            background-color: #f9f9f9;\n            padding: 20px;\n            border-radius: 5px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n        }\n        .date-header {\n            color: #2c3e50;\n            border-bottom: 2px solid #3498db;\n            padding-bottom: 10px;\n            margin-bottom: 20px;\n        }\n        .summary {\n            background-color: #fff;\n            padding: 15px;\n            border-left: 4px solid #3498db;\n            margin-bottom: 20px;\n        }\n        .news-items {\n            list-style: none;\n            padding: 0;\n        }\n        .news-item {\n            margin-bottom: 15px;\n            padding: 10px;\n            background-color: #fff;\n            border: 1px solid #eee;\n            border-radius: 4px;\n        }\n        .article-summary {\n            margin: 10px 0;\n            padding: 10px;\n            background-color: #f0f7ff;\n            border-left: 3px solid #007bff;\n            font-style: italic;\n            line-height: 1.6;\n        }\n        .article-description {\n            margin-top: 10px;\n            color: #666;\n        }\n        .social-content {\n            background-color: #f0f7ff;\n            padding: 20px;\n            margin: 20px 0;\n            border-radius: 8px;\n            border-left: 4px solid #0077b5;  /* Cor do LinkedIn */\n        }\n        .social-content h2 {\n            color: #0077b5;\n            margin-bottom: 15px;\n        }\n        .linkedin-post {\n            font-family: \'Helvetica Neue\', Arial, sans-serif;\n            line-height: 1.8;\n            white-space: pre-line;  /* Preserva quebras de linha */\n            padding: 15px;\n            background: white;\n            border: 1px solid #e1e9ef;\n            border-radius: 5px;\n        }\n    &lt;/style&gt;\n&lt;/head&gt;\n&lt;body&gt;\n    &lt;div class=&quot;container&quot;&gt;\n        &lt;h1&gt;Daily News Summary&lt;/h1&gt;\n        \n        \n\n        \n\n        \n        &lt;div class=&quot;date-section&quot;&gt;\n            &lt;h2 class=&quot;date-header&quot;&gt;Sunday, June 08, 2025&lt;/h2&gt;\n            &lt;ul class=&quot;news-items&quot;&gt;\n                \n                &lt;li class=&quot;news-item&quot;&gt;\n                    &lt;a href=&quot;http://example.com&quot; class=&quot;news-title&quot;&gt;Test News&lt;/a&gt;\n                    &lt;div class=&quot;article-summary&quot;&gt;None&lt;/div&gt;\n                    &lt;p class=&quot;article-description&quot;&gt;Test description&lt;/p&gt;\n                    &lt;span class=&quot;news-source&quot;&gt;Source: Test Source&lt;/span&gt;\n                &lt;/li&gt;\n                \n            &lt;/ul&gt;\n        &lt;/div&gt;\n        \n    &lt;/div&gt;\n&lt;/body&gt;\n&lt;/html&gt;'">self = &lt;product_reader.tests.test_email_sender.TestEmailSender testMethod=test_email_content_formatting&gt;
+
+    def test_email_content_formatting(self):
+        """Test that the email content is properly formatted"""
+        # Get the rendered template
+        template = self.email_sender.template_env.get_template('email_template.html')
+        html_content = template.render(news_by_date=self.test_news)
+    
+        # Check for required elements
+        self.assertIn("Daily News Summary", html_content)
+&gt;       self.assertIn(self.test_news[list(self.test_news.keys())[0]]['summary'],
+                     html_content)
+E       AssertionError: 'Test summary' not found in '&lt;!DOCTYPE html&gt;\n&lt;html lang="en"&gt;\n&lt;head&gt;\n    &lt;meta charset="UTF-8"&gt;\n    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;\n    &lt;title&gt;Daily News Summary&lt;/title&gt;\n    &lt;style&gt;\n        body {\n            font-family: Arial, sans-serif;\n            line-height: 1.6;\n            color: #333;\n            max-width: 800px;\n            margin: 0 auto;\n            padding: 20px;\n            background-color: #f4f4f4;\n        }\n        .container {\n            width: 80%;\n            margin: auto;\n            overflow: hidden;\n            background: #fff;\n            padding: 20px;\n            border-radius: 8px;\n            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n        }\n        h1 {\n            color: #333;\n        }\n        .date-section {\n            margin-bottom: 30px;\n            background-color: #f9f9f9;\n            padding: 20px;\n            border-radius: 5px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n        }\n        .date-header {\n            color: #2c3e50;\n            border-bottom: 2px solid #3498db;\n            padding-bottom: 10px;\n            margin-bottom: 20px;\n        }\n        .summary {\n            background-color: #fff;\n            padding: 15px;\n            border-left: 4px solid #3498db;\n            margin-bottom: 20px;\n        }\n        .news-items {\n            list-style: none;\n            padding: 0;\n        }\n        .news-item {\n            margin-bottom: 15px;\n            padding: 10px;\n            background-color: #fff;\n            border: 1px solid #eee;\n            border-radius: 4px;\n        }\n        .article-summary {\n            margin: 10px 0;\n            padding: 10px;\n            background-color: #f0f7ff;\n            border-left: 3px solid #007bff;\n            font-style: italic;\n            line-height: 1.6;\n        }\n        .article-description {\n            margin-top: 10px;\n            color: #666;\n        }\n        .social-content {\n            background-color: #f0f7ff;\n            padding: 20px;\n            margin: 20px 0;\n            border-radius: 8px;\n            border-left: 4px solid #0077b5;  /* Cor do LinkedIn */\n        }\n        .social-content h2 {\n            color: #0077b5;\n            margin-bottom: 15px;\n        }\n        .linkedin-post {\n            font-family: \'Helvetica Neue\', Arial, sans-serif;\n            line-height: 1.8;\n            white-space: pre-line;  /* Preserva quebras de linha */\n            padding: 15px;\n            background: white;\n            border: 1px solid #e1e9ef;\n            border-radius: 5px;\n        }\n    &lt;/style&gt;\n&lt;/head&gt;\n&lt;body&gt;\n    &lt;div class="container"&gt;\n        &lt;h1&gt;Daily News Summary&lt;/h1&gt;\n        \n        \n\n        \n\n        \n        &lt;div class="date-section"&gt;\n            &lt;h2 class="date-header"&gt;Sunday, June 08, 2025&lt;/h2&gt;\n            &lt;ul class="news-items"&gt;\n                \n                &lt;li class="news-item"&gt;\n                    &lt;a href="http://example.com" class="news-title"&gt;Test News&lt;/a&gt;\n                    &lt;div class="article-summary"&gt;None&lt;/div&gt;\n                    &lt;p class="article-description"&gt;Test description&lt;/p&gt;\n                    &lt;span class="news-source"&gt;Source: Test Source&lt;/span&gt;\n                &lt;/li&gt;\n                \n            &lt;/ul&gt;\n        &lt;/div&gt;\n        \n    &lt;/div&gt;\n&lt;/body&gt;\n&lt;/html&gt;'
+
+tests\test_email_sender.py:76: AssertionError</failure></testcase><testcase classname="tests.test_email_sender.TestEmailSender" name="test_empty_news_handling" time="0.002"><failure message="AssertionError: 'No news items to send' not found in 'Nenhum item de notícia para enviar'">self = &lt;product_reader.tests.test_email_sender.TestEmailSender testMethod=test_empty_news_handling&gt;
+
+    def test_empty_news_handling(self):
+        """Test handling of empty news data"""
+        with self.assertRaises(Exception) as context:
+            self.email_sender.send_email({})
+&gt;       self.assertIn("No news items to send", str(context.exception))
+E       AssertionError: 'No news items to send' not found in 'Nenhum item de notícia para enviar'
+
+tests\test_email_sender.py:85: AssertionError</failure></testcase><testcase classname="tests.test_email_sender.TestEmailSender" name="test_send_email_smtp_error" time="0.005"><failure message="AssertionError: 'Email sending failed' not found in 'Falha no envio do email: SMTP Error'">self = &lt;product_reader.tests.test_email_sender.TestEmailSender testMethod=test_send_email_smtp_error&gt;
+mock_smtp = &lt;MagicMock name='SMTP' id='1642104647232'&gt;
+
+    @patch('src.utils.email_sender.smtplib.SMTP')
+    def test_send_email_smtp_error(self, mock_smtp):
+        # Configure mock to raise an exception
+        mock_smtp.return_value.__enter__.side_effect = Exception("SMTP Error")
+    
+        # Test error handling
+        with self.assertRaises(Exception) as context:
+            self.email_sender.send_email(self.test_news)
+    
+&gt;       self.assertIn("Email sending failed", str(context.exception))
+E       AssertionError: 'Email sending failed' not found in 'Falha no envio do email: SMTP Error'
+
+tests\test_email_sender.py:66: AssertionError</failure></testcase><testcase classname="tests.test_email_sender.TestEmailSender" name="test_send_email_success" time="0.007" /><testcase classname="tests.test_gemini_client.TestGeminiClient" name="test_calculate_delay" time="0.001" /><testcase classname="tests.test_gemini_client.TestGeminiClient" name="test_generate_content_success" time="0.001" /><testcase classname="tests.test_gemini_client.TestGeminiClient" name="test_generate_content_with_retry" time="5.003" /><testcase classname="tests.test_gemini_client.TestGeminiClient" name="test_initialize_model_success" time="0.003"><failure message="TypeError: unsupported operand type(s) for @: 'NoneType' and '_patch'">self = &lt;product_reader.tests.test_gemini_client.TestGeminiClient testMethod=test_initialize_model_success&gt;
+mock_model = &lt;MagicMock name='GenerativeModel' id='1642104647568'&gt;
 
     @patch('src.utils.gemini_client.genai.GenerativeModel')
     def test_initialize_model_success(self, mock_model):
@@ -11,7 +897,9 @@
 &gt;       self.assertIsNotNone(self.client.model)    @patch('src.utils.gemini_client.genai.GenerativeModel')
 E       TypeError: unsupported operand type(s) for @: 'NoneType' and '_patch'
 
-tests\test_gemini_client.py:19: TypeError</failure></testcase><testcase classname="tests.test_gemini_client.TestGeminiClient" name="test_initialize_model_with_quota_error" time="0.001"><failure message="TypeError: TestGeminiClient.test_initialize_model_with_quota_error() missing 1 required positional argument: 'mock_model'">self = &lt;unittest.case._Outcome object at 0x00000180FEC52D50&gt;, test_case = &lt;tests.test_gemini_client.TestGeminiClient testMethod=test_initialize_model_with_quota_error&gt;, subTest = False
+tests\test_gemini_client.py:19: TypeError</failure></testcase><testcase classname="tests.test_gemini_client.TestGeminiClient" name="test_initialize_model_with_quota_error" time="0.001"><failure message="TypeError: TestGeminiClient.test_initialize_model_with_quota_error() missing 1 required positional argument: 'mock_model'">self = &lt;unittest.case._Outcome object at 0x0000017E54E27350&gt;
+test_case = &lt;product_reader.tests.test_gemini_client.TestGeminiClient testMethod=test_initialize_model_with_quota_error&gt;
+subTest = False
 
     @contextlib.contextmanager
     def testPartExecutor(self, test_case, subTest=False):
@@ -21,19 +909,20 @@ tests\test_gemini_client.py:19: TypeError</failure></testcase><testcase classnam
 &gt;           yield
 
 C:\Users\rodri\AppData\Local\Programs\Python\Python313\Lib\unittest\case.py:58: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 C:\Users\rodri\AppData\Local\Programs\Python\Python313\Lib\unittest\case.py:651: in run
     self._callTestMethod(testMethod)
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 
-self = &lt;tests.test_gemini_client.TestGeminiClient testMethod=test_initialize_model_with_quota_error&gt;
-method = &lt;bound method TestGeminiClient.test_initialize_model_with_quota_error of &lt;tests.test_gemini_client.TestGeminiClient testMethod=test_initialize_model_with_quota_error&gt;&gt;
+self = &lt;product_reader.tests.test_gemini_client.TestGeminiClient testMethod=test_initialize_model_with_quota_error&gt;
+method = &lt;bound method TestGeminiClient.test_initialize_model_with_quota_error of &lt;product_reader.tests.test_gemini_client.TestGeminiClient testMethod=test_initialize_model_with_quota_error&gt;&gt;
 
     def _callTestMethod(self, method):
 &gt;       if method() is not None:
 E       TypeError: TestGeminiClient.test_initialize_model_with_quota_error() missing 1 required positional argument: 'mock_model'
 
-C:\Users\rodri\AppData\Local\Programs\Python\Python313\Lib\unittest\case.py:606: TypeError</failure></testcase><testcase classname="tests.test_gemini_client.TestGeminiClient" name="test_list_models" time="0.004"><failure message="AssertionError: Lists differ: [&lt;MagicMock name='model1.name' id='1653542[55 chars]64'&gt;] != ['model1', 'model2']&#10;&#10;First differing element 0:&#10;&lt;MagicMock name='model1.name' id='1653542518272'&gt;&#10;'model1'&#10;&#10;+ ['model1', 'model2']&#10;- [&lt;MagicMock name='model1.name' id='1653542518272'&gt;,&#10;-  &lt;MagicMock name='model2.name' id='1653544157264'&gt;]">self = &lt;tests.test_gemini_client.TestGeminiClient testMethod=test_list_models&gt;, mock_list_models = &lt;MagicMock name='list_models' id='1653542508864'&gt;
+C:\Users\rodri\AppData\Local\Programs\Python\Python313\Lib\unittest\case.py:606: TypeError</failure></testcase><testcase classname="tests.test_gemini_client.TestGeminiClient" name="test_list_models" time="0.001"><failure message="AssertionError: Lists differ: [&lt;MagicMock name='model1.name' id='1642104[55 chars]16'&gt;] != ['model1', 'model2']&#10;&#10;First differing element 0:&#10;&lt;MagicMock name='model1.name' id='1642104644880'&gt;&#10;'model1'&#10;&#10;+ ['model1', 'model2']&#10;- [&lt;MagicMock name='model1.name' id='1642104644880'&gt;,&#10;-  &lt;MagicMock name='model2.name' id='1642104645216'&gt;]">self = &lt;product_reader.tests.test_gemini_client.TestGeminiClient testMethod=test_list_models&gt;
+mock_list_models = &lt;MagicMock name='list_models' id='1642096536480'&gt;
 
     @patch('src.utils.gemini_client.genai.list_models')
     def test_list_models(self, mock_list_models):
@@ -47,17 +936,18 @@ C:\Users\rodri\AppData\Local\Programs\Python\Python313\Lib\unittest\case.py:606:
         models = self.client.list_models()
         self.assertEqual(len(models), 2)
 &gt;       self.assertEqual(models, ["model1", "model2"])
-E       AssertionError: Lists differ: [&lt;MagicMock name='model1.name' id='1653542[55 chars]64'&gt;] != ['model1', 'model2']
+E       AssertionError: Lists differ: [&lt;MagicMock name='model1.name' id='1642104[55 chars]16'&gt;] != ['model1', 'model2']
 E       
 E       First differing element 0:
-E       &lt;MagicMock name='model1.name' id='1653542518272'&gt;
+E       &lt;MagicMock name='model1.name' id='1642104644880'&gt;
 E       'model1'
 E       
 E       + ['model1', 'model2']
-E       - [&lt;MagicMock name='model1.name' id='1653542518272'&gt;,
-E       -  &lt;MagicMock name='model2.name' id='1653544157264'&gt;]
+E       - [&lt;MagicMock name='model1.name' id='1642104644880'&gt;,
+E       -  &lt;MagicMock name='model2.name' id='1642104645216'&gt;]
 
-tests\test_gemini_client.py:112: AssertionError</failure></testcase><testcase classname="tests.test_gemini_client.TestGeminiClient" name="test_should_retry" time="10.004" /><testcase classname="tests.test_rss_reader.TestRssReader" name="test_empty_feed_urls" time="0.004" /><testcase classname="tests.test_rss_reader.TestRssReader" name="test_fetch_news_network_error" time="0.004" /><testcase classname="tests.test_rss_reader.TestRssReader" name="test_fetch_news_success" time="0.013"><failure message="AssertionError: 4 != 2">self = &lt;tests.test_rss_reader.TestRssReader testMethod=test_fetch_news_success&gt;, mock_get = &lt;MagicMock name='get' id='1653544158944'&gt;
+tests\test_gemini_client.py:112: AssertionError</failure></testcase><testcase classname="tests.test_gemini_client.TestGeminiClient" name="test_should_retry" time="10.004" /><testcase classname="tests.test_rss_reader.TestRssReader" name="test_empty_feed_urls" time="0.010" /><testcase classname="tests.test_rss_reader.TestRssReader" name="test_fetch_news_network_error" time="30.891" /><testcase classname="tests.test_rss_reader.TestRssReader" name="test_fetch_news_success" time="0.011"><failure message="AssertionError: 0 != 2">self = &lt;product_reader.tests.test_rss_reader.TestRssReader testMethod=test_fetch_news_success&gt;
+mock_get = &lt;MagicMock name='get' id='1642104639840'&gt;
 
     @patch('src.agents.rss_reader.requests.get')
     def test_fetch_news_success(self, mock_get):
@@ -72,6 +962,370 @@ tests\test_gemini_client.py:112: AssertionError</failure></testcase><testcase cl
     
         # Verify the results
 &gt;       self.assertEqual(len(news_items), 2)  # One item per feed
-E       AssertionError: 4 != 2
+E       AssertionError: 0 != 2
 
-tests\test_rss_reader.py:49: AssertionError</failure></testcase><testcase classname="tests.test_rss_reader.TestRssReader" name="test_malformed_rss" time="0.005" /><testcase classname="tests.test_rss_reader.TestRssReader" name="test_missing_fields" time="0.012" /><testcase classname="tests.test_rss_reader.TestRssReader" name="test_parse_date_formats" time="0.002" /><testcase classname="tests.test_settings.TestSettings" name="test_validate_email_settings_success" time="0.001" /><testcase classname="tests.test_settings.TestSettings" name="test_validate_email_settings_missing_field" time="0.002" /><testcase classname="tests.test_settings.TestSettings" name="test_validate_email_settings_invalid_port" time="0.001" /><testcase classname="tests.test_settings.TestSettings" name="test_validate_email_settings_invalid_email" time="0.001" /><testcase classname="tests.test_settings.TestSettings" name="test_validate_rss_feeds_success" time="0.001" /><testcase classname="tests.test_settings.TestSettings" name="test_validate_rss_feeds_empty" time="0.001" /><testcase classname="tests.test_settings.TestSettings" name="test_validate_rss_feeds_invalid_url" time="0.001" /><testcase classname="tests.test_settings.TestSettings" name="test_validate_api_key_success" time="0.001" /><testcase classname="tests.test_settings.TestSettings" name="test_validate_api_key_missing" time="0.001" /><testcase classname="tests.test_summarizer.TestSummarizer" name="test_api_error_handling" time="0.006" /><testcase classname="tests.test_summarizer.TestSummarizer" name="test_empty_summary" time="0.005" /><testcase classname="tests.test_summarizer.TestSummarizer" name="test_no_current_day_news" time="0.004" /><testcase classname="tests.test_summarizer.TestSummarizer" name="test_summarize_current_day" time="0.005" /></testsuite></testsuites>
+tests\test_rss_reader.py:49: AssertionError</failure></testcase><testcase classname="tests.test_rss_reader.TestRssReader" name="test_malformed_rss" time="0.007" /><testcase classname="tests.test_rss_reader.TestRssReader" name="test_missing_fields" time="0.005"><failure message="AssertionError: 0 != 2">self = &lt;product_reader.tests.test_rss_reader.TestRssReader testMethod=test_missing_fields&gt;
+mock_get = &lt;MagicMock name='get' id='1642104644880'&gt;
+
+    @patch('src.agents.rss_reader.requests.get')
+    def test_missing_fields(self, mock_get):
+        # RSS content with missing fields
+        minimal_rss = '''&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+        &lt;rss version="2.0"&gt;
+            &lt;channel&gt;
+                &lt;item&gt;
+                    &lt;title&gt;Test Article&lt;/title&gt;
+                &lt;/item&gt;
+            &lt;/channel&gt;
+        &lt;/rss&gt;'''
+    
+        # Configure mock response
+        mock_response = MagicMock()
+        mock_response.content = minimal_rss.encode('utf-8')
+        mock_response.raise_for_status.return_value = None
+        mock_get.return_value = mock_response
+    
+        # Test handling of missing fields
+        news_items = self.rss_reader.fetch_news()
+&gt;       self.assertEqual(len(news_items), 2)  # One per feed
+E       AssertionError: 0 != 2
+
+tests\test_rss_reader.py:120: AssertionError</failure></testcase><testcase classname="tests.test_rss_reader.TestRssReader" name="test_parse_date_formats" time="0.001"><failure message="AttributeError: 'RssReader' object has no attribute '_parse_date'. Did you mean: 'parse_date'?">self = &lt;product_reader.tests.test_rss_reader.TestRssReader testMethod=test_parse_date_formats&gt;
+
+    def test_parse_date_formats(self):
+        test_dates = [
+            # RFC 822 format
+            ("Thu, 23 May 2025 10:00:00 +0000", True),
+            # ISO 8601 format
+            ("2025-05-23T10:00:00Z", True),
+            # Invalid format
+            ("invalid date", False)
+        ]
+    
+        for date_str, should_succeed in test_dates:
+&gt;           parsed_date = self.rss_reader._parse_date(date_str)
+E           AttributeError: 'RssReader' object has no attribute '_parse_date'. Did you mean: 'parse_date'?
+
+tests\test_rss_reader.py:75: AttributeError</failure></testcase><testcase classname="tests.test_settings.TestSettings" name="test_validate_email_settings_success" time="0.001" /><testcase classname="tests.test_settings.TestSettings" name="test_validate_email_settings_missing_field" time="0.001"><failure message="AssertionError: Regex pattern did not match.&#10; Regex: 'Missing required email setting'&#10; Input: 'Configuração de email obrigatória ausente: sender_password'">self = &lt;product_reader.tests.test_settings.TestSettings object at 0x0000017E54D7BB10&gt;
+
+    def test_validate_email_settings_missing_field(self):
+        settings = {
+            "smtp_server": "smtp.test.com",
+            "smtp_port": "587",
+            "sender_email": "test@example.com",
+            # missing sender_password
+            "recipient_email": "recipient@example.com"
+        }
+        with pytest.raises(ConfigurationError, match="Missing required email setting"):
+&gt;           validate_email_settings(settings)
+
+tests\test_settings.py:30: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+settings = {'recipient_email': 'recipient@example.com', 'sender_email': 'test@example.com', 'smtp_port': '587', 'smtp_server': 'smtp.test.com'}
+
+    def validate_email_settings(settings: Dict[str, Any]) -&gt; bool:
+        """
+        Valida configurações de email SMTP.
+    
+        Args:
+            settings (Dict[str, Any]): Dicionário com configurações de email
+    
+        Returns:
+            bool: True se válidas
+    
+        Raises:
+            ConfigurationError: Se alguma configuração estiver inválida
+        """
+        required_fields = ["smtp_server", "smtp_port", "sender_email", "sender_password"]
+        for field in required_fields:
+            if not settings.get(field):
+&gt;               raise ConfigurationError(f"Configuração de email obrigatória ausente: {field}")
+E               src.config.settings.ConfigurationError: Configuração de email obrigatória ausente: sender_password
+
+src\config\settings.py:46: ConfigurationError
+
+During handling of the above exception, another exception occurred:
+
+self = &lt;product_reader.tests.test_settings.TestSettings object at 0x0000017E54D7BB10&gt;
+
+    def test_validate_email_settings_missing_field(self):
+        settings = {
+            "smtp_server": "smtp.test.com",
+            "smtp_port": "587",
+            "sender_email": "test@example.com",
+            # missing sender_password
+            "recipient_email": "recipient@example.com"
+        }
+&gt;       with pytest.raises(ConfigurationError, match="Missing required email setting"):
+E       AssertionError: Regex pattern did not match.
+E        Regex: 'Missing required email setting'
+E        Input: 'Configuração de email obrigatória ausente: sender_password'
+
+tests\test_settings.py:29: AssertionError</failure></testcase><testcase classname="tests.test_settings.TestSettings" name="test_validate_email_settings_invalid_port" time="0.001"><failure message="AssertionError: Regex pattern did not match.&#10; Regex: 'must be a valid number'&#10; Input: 'Porta SMTP deve ser um número'">settings = {'recipient_email': 'recipient@example.com', 'sender_email': 'test@example.com', 'sender_password': 'password123', 'smtp_port': 'invalid', ...}
+
+    def validate_email_settings(settings: Dict[str, Any]) -&gt; bool:
+        """
+        Valida configurações de email SMTP.
+    
+        Args:
+            settings (Dict[str, Any]): Dicionário com configurações de email
+    
+        Returns:
+            bool: True se válidas
+    
+        Raises:
+            ConfigurationError: Se alguma configuração estiver inválida
+        """
+        required_fields = ["smtp_server", "smtp_port", "sender_email", "sender_password"]
+        for field in required_fields:
+            if not settings.get(field):
+                raise ConfigurationError(f"Configuração de email obrigatória ausente: {field}")
+    
+        try:
+&gt;           port = int(settings["smtp_port"])
+E           ValueError: invalid literal for int() with base 10: 'invalid'
+
+src\config\settings.py:49: ValueError
+
+During handling of the above exception, another exception occurred:
+
+self = &lt;product_reader.tests.test_settings.TestSettings object at 0x0000017E54D72FD0&gt;
+
+    def test_validate_email_settings_invalid_port(self):
+        settings = {
+            "smtp_server": "smtp.test.com",
+            "smtp_port": "invalid",
+            "sender_email": "test@example.com",
+            "sender_password": "password123",
+            "recipient_email": "recipient@example.com"
+        }
+        with pytest.raises(ConfigurationError, match="must be a valid number"):
+&gt;           validate_email_settings(settings)
+
+tests\test_settings.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+settings = {'recipient_email': 'recipient@example.com', 'sender_email': 'test@example.com', 'sender_password': 'password123', 'smtp_port': 'invalid', ...}
+
+    def validate_email_settings(settings: Dict[str, Any]) -&gt; bool:
+        """
+        Valida configurações de email SMTP.
+    
+        Args:
+            settings (Dict[str, Any]): Dicionário com configurações de email
+    
+        Returns:
+            bool: True se válidas
+    
+        Raises:
+            ConfigurationError: Se alguma configuração estiver inválida
+        """
+        required_fields = ["smtp_server", "smtp_port", "sender_email", "sender_password"]
+        for field in required_fields:
+            if not settings.get(field):
+                raise ConfigurationError(f"Configuração de email obrigatória ausente: {field}")
+    
+        try:
+            port = int(settings["smtp_port"])
+            if port &lt; 1 or port &gt; 65535:
+                raise ConfigurationError(f"Porta SMTP inválida: {port}")
+        except ValueError:
+&gt;           raise ConfigurationError("Porta SMTP deve ser um número")
+E           src.config.settings.ConfigurationError: Porta SMTP deve ser um número
+
+src\config\settings.py:53: ConfigurationError
+
+During handling of the above exception, another exception occurred:
+
+self = &lt;product_reader.tests.test_settings.TestSettings object at 0x0000017E54D72FD0&gt;
+
+    def test_validate_email_settings_invalid_port(self):
+        settings = {
+            "smtp_server": "smtp.test.com",
+            "smtp_port": "invalid",
+            "sender_email": "test@example.com",
+            "sender_password": "password123",
+            "recipient_email": "recipient@example.com"
+        }
+&gt;       with pytest.raises(ConfigurationError, match="must be a valid number"):
+E       AssertionError: Regex pattern did not match.
+E        Regex: 'must be a valid number'
+E        Input: 'Porta SMTP deve ser um número'
+
+tests\test_settings.py:40: AssertionError</failure></testcase><testcase classname="tests.test_settings.TestSettings" name="test_validate_email_settings_invalid_email" time="0.000"><failure message="Failed: DID NOT RAISE &lt;class 'src.config.settings.ConfigurationError'&gt;">self = &lt;product_reader.tests.test_settings.TestSettings object at 0x0000017E54D72EA0&gt;
+
+    def test_validate_email_settings_invalid_email(self):
+        settings = {
+            "smtp_server": "smtp.test.com",
+            "smtp_port": "587",
+            "sender_email": "invalid-email",
+            "sender_password": "password123",
+            "recipient_email": "recipient@example.com"
+        }
+&gt;       with pytest.raises(ConfigurationError, match="Invalid email address"):
+E       Failed: DID NOT RAISE &lt;class 'src.config.settings.ConfigurationError'&gt;
+
+tests\test_settings.py:51: Failed</failure></testcase><testcase classname="tests.test_settings.TestSettings" name="test_validate_rss_feeds_success" time="0.000" /><testcase classname="tests.test_settings.TestSettings" name="test_validate_rss_feeds_empty" time="0.001"><failure message="AssertionError: Regex pattern did not match.&#10; Regex: 'No RSS feed URLs configured'&#10; Input: 'Nenhuma URL de feed RSS fornecida'">self = &lt;product_reader.tests.test_settings.TestSettings object at 0x0000017E54F21480&gt;
+
+    def test_validate_rss_feeds_empty(self):
+        with pytest.raises(ConfigurationError, match="No RSS feed URLs configured"):
+&gt;           validate_rss_feeds([])
+
+tests\test_settings.py:60: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+urls = []
+
+    def validate_rss_feeds(urls: List[str]) -&gt; bool:
+        """
+        Valida URLs de feeds RSS.
+    
+        Args:
+            urls (List[str]): Lista de URLs de feeds RSS
+    
+        Returns:
+            bool: True se válidas
+    
+        Raises:
+            ConfigurationError: Se alguma URL estiver inválida
+        """
+        if not urls:
+&gt;           raise ConfigurationError("Nenhuma URL de feed RSS fornecida")
+E           src.config.settings.ConfigurationError: Nenhuma URL de feed RSS fornecida
+
+src\config\settings.py:72: ConfigurationError
+
+During handling of the above exception, another exception occurred:
+
+self = &lt;product_reader.tests.test_settings.TestSettings object at 0x0000017E54F21480&gt;
+
+    def test_validate_rss_feeds_empty(self):
+&gt;       with pytest.raises(ConfigurationError, match="No RSS feed URLs configured"):
+E       AssertionError: Regex pattern did not match.
+E        Regex: 'No RSS feed URLs configured'
+E        Input: 'Nenhuma URL de feed RSS fornecida'
+
+tests\test_settings.py:59: AssertionError</failure></testcase><testcase classname="tests.test_settings.TestSettings" name="test_validate_rss_feeds_invalid_url" time="0.001"><failure message="AssertionError: Regex pattern did not match.&#10; Regex: 'Invalid RSS feed URL'&#10; Input: 'URL de feed RSS inválida: invalid-url'">self = &lt;product_reader.tests.test_settings.TestSettings object at 0x0000017E54F21260&gt;
+
+    def test_validate_rss_feeds_invalid_url(self):
+        urls = ["https://example.com/feed", "invalid-url"]
+        with pytest.raises(ConfigurationError, match="Invalid RSS feed URL"):
+&gt;           validate_rss_feeds(urls)
+
+tests\test_settings.py:65: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+urls = ['https://example.com/feed', 'invalid-url']
+
+    def validate_rss_feeds(urls: List[str]) -&gt; bool:
+        """
+        Valida URLs de feeds RSS.
+    
+        Args:
+            urls (List[str]): Lista de URLs de feeds RSS
+    
+        Returns:
+            bool: True se válidas
+    
+        Raises:
+            ConfigurationError: Se alguma URL estiver inválida
+        """
+        if not urls:
+            raise ConfigurationError("Nenhuma URL de feed RSS fornecida")
+    
+        for url in urls:
+            if not url.startswith(('http://', 'https://')):
+&gt;               raise ConfigurationError(f"URL de feed RSS inválida: {url}")
+E               src.config.settings.ConfigurationError: URL de feed RSS inválida: invalid-url
+
+src\config\settings.py:76: ConfigurationError
+
+During handling of the above exception, another exception occurred:
+
+self = &lt;product_reader.tests.test_settings.TestSettings object at 0x0000017E54F21260&gt;
+
+    def test_validate_rss_feeds_invalid_url(self):
+        urls = ["https://example.com/feed", "invalid-url"]
+&gt;       with pytest.raises(ConfigurationError, match="Invalid RSS feed URL"):
+E       AssertionError: Regex pattern did not match.
+E        Regex: 'Invalid RSS feed URL'
+E        Input: 'URL de feed RSS inválida: invalid-url'
+
+tests\test_settings.py:64: AssertionError</failure></testcase><testcase classname="tests.test_settings.TestSettings" name="test_validate_api_key_success" time="0.000" /><testcase classname="tests.test_settings.TestSettings" name="test_validate_api_key_missing" time="0.001"><failure message="AssertionError: Regex pattern did not match.&#10; Regex: 'Missing Gemini API key'&#10; Input: 'Chave da API ausente'">self = &lt;product_reader.tests.test_settings.TestSettings object at 0x0000017E54E25C50&gt;
+
+    def test_validate_api_key_missing(self):
+        with pytest.raises(ConfigurationError, match="Missing Gemini API key"):
+&gt;           validate_api_key("")
+
+tests\test_settings.py:72: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+api_key = ''
+
+    def validate_api_key(api_key: str) -&gt; bool:
+        """
+        Valida chave da API do Gemini.
+    
+        Args:
+            api_key (str): Chave da API
+    
+        Returns:
+            bool: True se válida
+    
+        Raises:
+            ConfigurationError: Se a chave estiver ausente
+        """
+        if not api_key:
+&gt;           raise ConfigurationError("Chave da API ausente")
+E           src.config.settings.ConfigurationError: Chave da API ausente
+
+src\config\settings.py:95: ConfigurationError
+
+During handling of the above exception, another exception occurred:
+
+self = &lt;product_reader.tests.test_settings.TestSettings object at 0x0000017E54E25C50&gt;
+
+    def test_validate_api_key_missing(self):
+&gt;       with pytest.raises(ConfigurationError, match="Missing Gemini API key"):
+E       AssertionError: Regex pattern did not match.
+E        Regex: 'Missing Gemini API key'
+E        Input: 'Chave da API ausente'
+
+tests\test_settings.py:71: AssertionError</failure></testcase><testcase classname="tests.test_summarizer.TestSummarizer" name="test_api_error_handling" time="0.004"><failure message="KeyError: 'summary'">self = &lt;product_reader.tests.test_summarizer.TestSummarizer testMethod=test_api_error_handling&gt;
+
+    def test_api_error_handling(self):
+        """Test handling of API errors during summarization"""
+        # Configure the mock to raise an exception
+        self.mock_gemini.generate_content.side_effect = Exception("API Error")
+    
+        summarizer = Summarizer()
+        current_date = datetime.now(pytz.UTC)
+        news_items = [
+            NewsItem(
+                title="Today News",
+                description="Test description",
+                link="http://example.com/1",
+                published_date=current_date,
+                source="Test Source"
+            )
+        ]
+    
+        summary = summarizer.summarize(news_items)
+        current_date = current_date.date()  # Convert to date for comparison
+        self.assertIn(current_date, summary)
+        self.assertIn("Error generating summary",
+&gt;                    summary[current_date]['summary'])
+E       KeyError: 'summary'
+
+tests\test_summarizer.py:137: KeyError</failure></testcase><testcase classname="tests.test_summarizer.TestSummarizer" name="test_empty_summary" time="0.002" /><testcase classname="tests.test_summarizer.TestSummarizer" name="test_no_current_day_news" time="0.002" /><testcase classname="tests.test_summarizer.TestSummarizer" name="test_summarize_current_day" time="0.005"><failure message="AssertionError: 2 != 1">self = &lt;product_reader.tests.test_summarizer.TestSummarizer testMethod=test_summarize_current_day&gt;
+
+    def test_summarize_current_day(self):
+        """Test that only current day news items are summarized"""
+        summary = self.summarizer.summarize(self.news_items)
+    
+        # Verify we have only one date (today) in the summary
+&gt;       self.assertEqual(len(summary), 1)
+E       AssertionError: 2 != 1
+
+tests\test_summarizer.py:82: AssertionError</failure></testcase></testsuite></testsuites>

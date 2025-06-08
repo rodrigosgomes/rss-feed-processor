@@ -1,12 +1,42 @@
 # RSS Feed Processor
 
-**Sistema Inteligente de Processamento de Feeds RSS**
+**Sistema Inteligente de Processamento de Feeds RSS** - Agora com Arquitetura Refatorada! 🎉
 
 Este projeto é um processador automatizado de feeds RSS que:
 - 📰 Lê artigos de múltiplas fontes RSS
 - 🤖 Gera resumos inteligentes usando Google Gemini AI
 - 📧 Envia emails diários formatados em HTML
 - 📱 Cria conteúdo otimizado para LinkedIn
+- 🏗️ **NOVO**: Arquitetura modular com Application Factory Pattern
+- 🖥️ **NOVO**: Interface CLI moderna com múltiplos comandos
+
+## 🆕 Nova Arquitetura (2025)
+
+O projeto foi completamente refatorado com:
+
+### 🏗️ Application Factory Pattern
+- **Injeção de Dependências**: Lazy loading de componentes
+- **Configuração Centralizada**: Dataclasses com validação robusta
+- **Separação de Responsabilidades**: Módulos independentes e testáveis
+- **Melhores Práticas**: Seguindo padrões modernos de Python
+
+### 🖥️ Interface CLI Moderna
+```bash
+# Nova interface principal (recomendada)
+python cli.py run --dry-run --days 3
+python cli.py test
+python cli.py validate
+python cli.py list-feeds
+
+# Interface legada (mantida para compatibilidade)
+python src/main.py --dry-run --days 3
+```
+
+### 🧪 Testes Abrangentes
+- **Testes Unitários**: Cobertura completa dos módulos refatorados
+- **Mocks e Fixtures**: Isolamento de dependências externas
+- **Validação de Configuração**: Testes para sistema de configuração
+- **CI/CD Ready**: Suite de testes preparada para automação
 
 ## ✨ Funcionalidades
 
@@ -61,126 +91,49 @@ https://valor.globo.com/rss/home/
 
 ## 📊 Uso
 
-### Execução Básica
-```powershell
-# Processa notícias do último dia
-.\run_app.ps1
+### 🖥️ Interface CLI Moderna (Recomendada)
 
-# Processa últimos 3 dias
-.\run_app.ps1 --days 3
+```bash
+# ✅ Execução básica com validação
+python cli.py run                              # Processa últimas 24 horas
+python cli.py run --days 3                     # Processa últimos 3 dias
+python cli.py run --dry-run                    # Executa sem enviar email
+python cli.py --debug run --dry-run            # Debug mode com dry-run
 
-# Modo debug (sem enviar email)
-.\run_app.ps1 --dry-run
+# 🚀 Atalhos inteligentes (NOVO!)
+python cli.py --days 3                         # Atalho: processa últimos 3 dias
+python cli.py --dry-run                        # Atalho: executa sem enviar email
+python cli.py --debug --dry-run                # Atalho: debug + dry-run
+
+# 🔧 Comandos de teste e validação
+python cli.py test                             # Testa todas as conexões
+python cli.py validate                         # Valida configuração
+python cli.py list-feeds                       # Lista feeds configurados
+
+# 🎯 Opções avançadas
+python cli.py run --feeds "url1,url2"          # Usa feeds específicos
+python cli.py run --skip-test                  # Pula teste de conexões
+python cli.py --config custom.env run          # Usa arquivo de config customizado
 ```
 
-### Opções da Linha de Comando
-- `--days N`: Número de dias para processar (padrão: 1)
-- `--dry-run`: Executa sem enviar emails
-- `--verbose`: Logs mais detalhados
+### 📋 Comandos Disponíveis
 
-## 🏗️ Arquitetura do Sistema
+| Comando | Descrição | Exemplo |
+|---------|-----------|---------|
+| `run` | Executa processamento completo | `cli.py run --days 2` |
+| `test` | Testa conexões (Gemini + SMTP) | `cli.py test` |
+| `validate` | Valida configuração | `cli.py validate` |
+| `list-feeds` | Lista feeds configurados | `cli.py list-feeds` |
 
-```
-product_reader/
-├── 📁 src/                          # Código fonte principal
-│   ├── 🏠 main.py                   # Ponto de entrada da aplicação
-│   ├── 📁 agents/                   # Agentes de processamento
-│   │   ├── rss_reader.py           # Leitor de feeds RSS
-│   │   └── summarizer.py           # Gerador de resumos com IA
-│   ├── 📁 config/                   # Configurações do sistema
-│   │   ├── settings.py             # Configurações centralizadas
-│   │   ├── feeds.txt              # URLs dos feeds RSS
-│   │   └── recipients.txt         # Lista de destinatários
-│   ├── 📁 models/                   # Modelos de dados
-│   │   └── news_item.py           # Estrutura de itens de notícia
-│   ├── 📁 templates/                # Templates e prompts
-│   │   ├── email_template.html     # Template HTML do email
-│   │   └── prompts.py             # Prompts para IA
-│   └── 📁 utils/                    # Utilitários
-│       ├── email_sender.py        # Envio de emails
-│       ├── gemini_client.py       # Cliente da API Gemini
-│       ├── logger.py              # Sistema de logging
-│       └── date_helpers.py        # Manipulação de datas
-├── 📁 tests/                        # Testes automatizados
-├── 📄 requirements.txt              # Dependências do projeto
-├── 📄 .env                          # Variáveis de ambiente
-└── 📄 run_app.ps1                   # Script de execução
+### 🔄 Interface Legada (Compatibilidade)
 
+```bash
+# Interface original mantida para compatibilidade
+python src/main.py --dry-run --days 3
+python src/main.py --test-connections
+python src/main.py --debug
 ```
 
-## 🔧 Desenvolvimento
+### 🚀 Execução com PowerShell
 
-### Executando Testes
-```powershell
-# Instalar dependências de desenvolvimento
-pip install pytest pytest-cov
-
-# Executar todos os testes
-pytest tests/
-
-# Executar com coverage
-pytest --cov=src tests/
-```
-
-### Padrões de Código
-- **Documentação**: Todos os módulos e funções documentados em português
-- **Type Hints**: Tipagem explícita em Python
-- **Logging**: Sistema padronizado de logs com emojis
-- **Error Handling**: Tratamento robusto de exceções
-
-## 🐛 Solução de Problemas
-
-### Erro de Envio de Email
-```
-✗ Falha no envio do email: Authentication failed
-```
-**Solução**: 
-- Verifique as credenciais SMTP no arquivo `.env`
-- Para Gmail, use senha de aplicativo específica
-- Verifique se 2FA está habilitado
-
-### Erro de API Gemini
-```
-✗ Quota exceeded for Gemini API
-```
-**Solução**: 
-- Verifique sua cota na Google Cloud Console
-- O sistema automaticamente tenta modelos gratuitos como fallback
-
-### Feeds RSS Inacessíveis
-```
-✗ Failed to fetch feed: Connection timeout
-```
-**Solução**: 
-- Verifique conexão com internet
-- Confirme se URLs dos feeds estão corretas em `feeds.txt`
-
-## 📈 Monitoramento
-
-O sistema gera logs detalhados que incluem:
-- ✅ Status de processamento de cada feed
-- 📊 Estatísticas de artigos processados
-- ⏱️ Tempo de execução de cada etapa
-- 🚨 Alertas de erro com contexto
-
-## 🤝 Contribuindo
-
-1. Fork o repositório
-2. Crie uma branch para sua feature: `git checkout -b feature/nova-funcionalidade`
-3. Commit suas mudanças: `git commit -m "Adiciona nova funcionalidade"`
-4. Push para a branch: `git push origin feature/nova-funcionalidade`
-5. Abra um Pull Request
-
-### Diretrizes de Contribuição
-- Mantenha documentação em português
-- Adicione testes para novas funcionalidades
-- Siga padrões de código existentes
-- Atualize README se necessário
-
-## 📄 Licença
-
-Este projeto está licenciado sob a Licença MIT. Veja o arquivo LICENSE para detalhes.
-
----
-
-**Desenvolvido com ❤️ para automatizar o consumo inteligente de notícias**
+...existing code...
