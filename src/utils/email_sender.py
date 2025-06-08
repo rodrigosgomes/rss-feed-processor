@@ -92,9 +92,7 @@ class EmailSender:
             }
             
             html_content = template.render(**template_data)
-            msg = MIMEMultipart('alternative')
-
-            # Gera linha de assunto baseada no intervalo de datas
+            msg = MIMEMultipart('alternative')            # Gera linha de assunto baseada no intervalo de datas
             dates = sorted(list(filtered_news.keys()))
             
             if len(dates) == 1:
@@ -104,7 +102,18 @@ class EmailSender:
             
             msg['Subject'] = subject
             msg['From'] = self.settings['sender_email']
-            msg['To'] = self.settings['recipient_email']
+            
+            # Obtém lista de destinatários
+            recipients = self.settings.get('recipients', [])
+            if not recipients:
+                # Fallback para compatibilidade com configuração antiga
+                recipient_email = self.settings.get('recipient_email', '')
+                if recipient_email:
+                    recipients = [recipient_email]
+                else:
+                    raise EmailSendError("Nenhum destinatário configurado")
+            
+            msg['To'] = ', '.join(recipients)
             msg.attach(MIMEText(html_content, 'html'))
 
             # Conecta e envia via SMTP
@@ -115,7 +124,8 @@ class EmailSender:
                     logger.info("Realizando login SMTP")
                     server.login(self.settings['sender_email'], self.settings['sender_password'])
                     logger.info("Enviando email")
-                    server.send_message(msg)
+                    # Envia para todos os destinatários
+                    server.send_message(msg, to_addrs=recipients)
                     logger.info("✓ Email enviado com sucesso!")
             except Exception as smtp_error:
                 raise EmailSendError(f"Falha no envio do email: {str(smtp_error)}")

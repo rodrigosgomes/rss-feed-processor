@@ -44,7 +44,9 @@ class EmailConfig:
             'sender_email': self.sender_email,
             'sender_password': self.sender_password,
             'sender_name': self.sender_name,
-            'recipients': self.recipients
+            'recipients': self.recipients,
+            # Mantém compatibilidade com código antigo
+            'recipient_email': self.recipients[0] if self.recipients else ''
         }
 
 
