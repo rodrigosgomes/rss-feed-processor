@@ -166,8 +166,18 @@ def load_email_config() -> Optional[EmailConfig]:
         # Carrega lista de destinatários
         project_root = Path(__file__).parent.parent
         recipients = read_file_lines('config/recipients.txt', project_root)
+
+        # Se recipients.txt não existir ou estiver vazio, tenta variável de ambiente
+        if not recipients:
+            env_recipients = os.getenv('RECIPIENT_EMAIL', '')
+            if env_recipients:
+                # Suporta múltiplos destinatários separados por vírgula ou ponto e vírgula
+                recipients = [email.strip() for email in env_recipients.replace(';', ',').split(',') if email.strip()]
         config.recipients = recipients
-        
+
+        if not config.recipients:
+            logger.error('Nenhum destinatário configurado. Configure recipients.txt ou a variável RECIPIENT_EMAIL.')
+
         return config
         
     except (ValueError, TypeError) as e:
